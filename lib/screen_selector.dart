@@ -13,19 +13,13 @@ class ScreenSelector extends StatefulWidget {
 
 class _ScreenSelectorState extends State<ScreenSelector> {
   int selectedPosition = 0;
-  int _currentIndex = 0;
+
   List<Widget> _screenContainer = [
     HomeScreen(),
     ScheduleScreen(),
     NotificationScreen(),
     ChatScreen()
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +54,32 @@ class _ScreenSelectorState extends State<ScreenSelector> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                icon: SvgPicture.asset(
+                icon: selectedPosition==0?SvgPicture.asset(
                     'images/home.svg',
                   width: 23,
                   height: 23,
+                  color: Colors.black,
+                ):SvgPicture.asset(
+                  'images/home.svg',
+                  width: 23,
+                  height: 23,
+                  color: Colors.grey[600],
                 ),
+                onPressed: (){
+                  setState(() {
+                    selectedPosition = 0;
+                  });
+                },
+                splashRadius: 25,
+              ),
+              IconButton(
+                icon: selectedPosition==1?SvgPicture.asset('images/calendar.svg',
+                  width: 23,
+                  height: 23,
+                  color: Colors.black,):SvgPicture.asset('images/calendar.svg',
+                  width: 23,
+                  height: 23,
+                  color: Colors.grey[600],),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 1;
@@ -72,10 +87,17 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 },
                 splashRadius: 25,
               ),
+              SizedBox(width: 48,),
               IconButton(
-                icon: SvgPicture.asset('images/calendar.svg',
-                  width: 23,
-                  height: 23,),
+                icon: selectedPosition==2?SvgPicture.asset('images/bell.svg',
+                  width: 25,
+                  height: 25,
+                  color: Colors.black,
+                ):SvgPicture.asset('images/bell.svg',
+                  width: 25,
+                  height: 25,
+                  color: Colors.grey[600],
+                ),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 2;
@@ -83,26 +105,17 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 },
                 splashRadius: 25,
               ),
-              SizedBox(width: 48,),
               IconButton(
-                icon: SvgPicture.asset('images/bell.svg',
-                  width: 25,
-                  height: 25,
-                ),
+                icon: selectedPosition==3?SvgPicture.asset('images/chat.svg',
+                  width: 23,
+                  height: 23,
+                  color: Colors.black,):SvgPicture.asset('images/chat.svg',
+                  width: 23,
+                  height: 23,
+                  color: Colors.grey[600],),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 3;
-                  });
-                },
-                splashRadius: 25,
-              ),
-              IconButton(
-                icon: SvgPicture.asset('images/chat.svg',
-                  width: 23,
-                  height: 23,),
-                onPressed: (){
-                  setState(() {
-                    selectedPosition = 0;
                   });
                 },
                 splashRadius: 25,
