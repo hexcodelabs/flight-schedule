@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,17 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          actions: [
+            IconButton(icon: Icon(Icons.search_rounded), onPressed: (){}),
+          ],
+        ),
+        drawer: Drawer(),
         floatingActionButton: Container(
           height: 61.0,
           width: 60.0,
