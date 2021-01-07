@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/schedule_screen.dart';
@@ -13,7 +12,7 @@ class ScreenSelector extends StatefulWidget {
 }
 
 class _ScreenSelectorState extends State<ScreenSelector> {
-  int selectedPosition = 0;
+  int _selectedPosition = 0;
 
   List<Widget> _screenContainer = [
     HomeScreen(),
@@ -24,40 +23,36 @@ class _ScreenSelectorState extends State<ScreenSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(
-            color: Colors.black
-          ),
-          backgroundColor: Colors.white,
-          elevation: 0,
-          actions: [
-            IconButton(icon: Icon(Icons.search_rounded), onPressed: (){}),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black
         ),
-        drawer: Drawer(),
-        floatingActionButton: Container(
-          height: 61.0,
-          width: 60.0,
-          child: FittedBox(
-            child: FloatingActionButton(
-              onPressed: (){},
-              child: Icon(Icons.add),
-            ),
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: _buildBottomTab(),
-        body: _screenContainer[selectedPosition],
+        elevation: 0,
+        actions: [
+          IconButton(icon: Icon(Icons.search_rounded), onPressed: (){}),
+        ],
       ),
+      drawer: Drawer(),
+      floatingActionButton: Container(
+        height: 61.0,
+        width: 60.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: (){},
+            child: Icon(Icons.add),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: _buildBottomTab(),
+      body: SafeArea(child: _screenContainer[_selectedPosition]),
     );
   }
 
   _buildBottomTab() {
     return Container(
       child: BottomAppBar(
-        color: Colors.white,
         shape: CircularNotchedRectangle(),
         child: Container(
           height: 59,
@@ -66,7 +61,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                icon: selectedPosition==0?SvgPicture.asset(
+                icon: _selectedPosition==0?SvgPicture.asset(
                     'images/home.svg',
                   width: 23,
                   height: 23,
@@ -79,13 +74,13 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 ),
                 onPressed: (){
                   setState(() {
-                    selectedPosition = 0;
+                    _selectedPosition = 0;
                   });
                 },
                 splashRadius: 25,
               ),
               IconButton(
-                icon: selectedPosition==1?SvgPicture.asset('images/calendar.svg',
+                icon: _selectedPosition==1?SvgPicture.asset('images/calendar.svg',
                   width: 23,
                   height: 23,
                   color: Colors.black,):SvgPicture.asset('images/calendar.svg',
@@ -94,14 +89,14 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                   color: Colors.grey[600],),
                 onPressed: (){
                   setState(() {
-                    selectedPosition = 1;
+                    _selectedPosition = 1;
                   });
                 },
                 splashRadius: 25,
               ),
               SizedBox(width: 48,),
               IconButton(
-                icon: selectedPosition==2?SvgPicture.asset('images/bell.svg',
+                icon: _selectedPosition==2?SvgPicture.asset('images/bell.svg',
                   width: 25,
                   height: 25,
                   color: Colors.black,
@@ -112,13 +107,13 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 ),
                 onPressed: (){
                   setState(() {
-                    selectedPosition = 2;
+                    _selectedPosition = 2;
                   });
                 },
                 splashRadius: 25,
               ),
               IconButton(
-                icon: selectedPosition==3?SvgPicture.asset('images/chat.svg',
+                icon: _selectedPosition==3?SvgPicture.asset('images/chat.svg',
                   width: 23,
                   height: 23,
                   color: Colors.black,):SvgPicture.asset('images/chat.svg',
@@ -127,7 +122,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                   color: Colors.grey[600],),
                 onPressed: (){
                   setState(() {
-                    selectedPosition = 3;
+                    _selectedPosition = 3;
                   });
                 },
                 splashRadius: 25,

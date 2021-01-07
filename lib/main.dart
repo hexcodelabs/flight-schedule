@@ -7,7 +7,10 @@ class AirClub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Air Club',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: ScreenSelector(),
     );
   }
