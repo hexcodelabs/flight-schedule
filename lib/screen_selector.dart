@@ -70,8 +70,6 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                     selectedPosition = 0;
                   });
                 },
-                highlightColor: Colors.black,
-                color: Colors.yellow,
                 splashRadius: 25,
               ),
               IconButton(
