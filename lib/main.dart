@@ -8,11 +8,11 @@ class AirClub extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: ThemeData.light().copyWith(
         primaryColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
       ),
       home: ScreenSelector(),
     );
   }
 }
-
