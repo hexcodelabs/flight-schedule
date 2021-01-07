@@ -1,3 +1,5 @@
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/schedule_screen.dart';
@@ -29,9 +31,15 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          child: Icon(Icons.add),
+        floatingActionButton: Container(
+          height: 61.0,
+          width: 60.0,
+          child: FittedBox(
+            child: FloatingActionButton(
+              onPressed: (){},
+              child: Icon(Icons.add),
+            ),
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: _buildBottomTab(),
@@ -43,7 +51,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   _buildBottomTab() {
     return Container(
       child: BottomAppBar(
-        color: Colors.deepPurple,
+        color: Colors.white,
         shape: CircularNotchedRectangle(),
         child: Container(
           height: 59,
@@ -52,37 +60,52 @@ class _ScreenSelectorState extends State<ScreenSelector> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                  icon: Icon(Icons.home),
-                onPressed: (){
-                    setState(() {
-                      selectedPosition = 0;
-                    });
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.home),
+                icon: SvgPicture.asset(
+                    'images/home.svg',
+                  width: 23,
+                  height: 23,
+                ),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 1;
                   });
                 },
+                splashRadius: 25,
               ),
-              SizedBox(width: 48,),
               IconButton(
-                icon: Icon(Icons.home),
+                icon: SvgPicture.asset('images/calendar.svg',
+                  width: 23,
+                  height: 23,),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 2;
                   });
                 },
+                splashRadius: 25,
               ),
+              SizedBox(width: 48,),
               IconButton(
-                icon: Icon(Icons.home),
+                icon: SvgPicture.asset('images/bell.svg',
+                  width: 25,
+                  height: 25,
+                ),
                 onPressed: (){
                   setState(() {
                     selectedPosition = 3;
                   });
                 },
+                splashRadius: 25,
+              ),
+              IconButton(
+                icon: SvgPicture.asset('images/chat.svg',
+                  width: 23,
+                  height: 23,),
+                onPressed: (){
+                  setState(() {
+                    selectedPosition = 0;
+                  });
+                },
+                splashRadius: 25,
               ),
             ],
           ),
