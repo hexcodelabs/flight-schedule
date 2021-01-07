@@ -62,12 +62,12 @@ class _ScreenSelectorState extends State<ScreenSelector> {
             children: <Widget>[
               IconButton(
                 icon: _selectedPosition==0?SvgPicture.asset(
-                    'images/home.svg',
+                    'images/bottomBar/home.svg',
                   width: 23,
                   height: 23,
                   color: Colors.black,
                 ):SvgPicture.asset(
-                  'images/home.svg',
+                  'images/bottomBar/home.svg',
                   width: 23,
                   height: 23,
                   color: Colors.grey[600],
@@ -80,10 +80,10 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 splashRadius: 25,
               ),
               IconButton(
-                icon: _selectedPosition==1?SvgPicture.asset('images/calendar.svg',
+                icon: _selectedPosition==1?SvgPicture.asset('images/bottomBar/calendar.svg',
                   width: 23,
                   height: 23,
-                  color: Colors.black,):SvgPicture.asset('images/calendar.svg',
+                  color: Colors.black,):SvgPicture.asset('images/bottomBar/calendar.svg',
                   width: 23,
                   height: 23,
                   color: Colors.grey[600],),
@@ -96,11 +96,11 @@ class _ScreenSelectorState extends State<ScreenSelector> {
               ),
               SizedBox(width: 48,),
               IconButton(
-                icon: _selectedPosition==2?SvgPicture.asset('images/bell.svg',
+                icon: _selectedPosition==2?SvgPicture.asset('images/bottomBar/bell.svg',
                   width: 25,
                   height: 25,
                   color: Colors.black,
-                ):SvgPicture.asset('images/bell.svg',
+                ):SvgPicture.asset('images/bottomBar/bell.svg',
                   width: 25,
                   height: 25,
                   color: Colors.grey[600],
@@ -113,10 +113,10 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 splashRadius: 25,
               ),
               IconButton(
-                icon: _selectedPosition==3?SvgPicture.asset('images/chat.svg',
+                icon: _selectedPosition==3?SvgPicture.asset('images/bottomBar/chat.svg',
                   width: 23,
                   height: 23,
-                  color: Colors.black,):SvgPicture.asset('images/chat.svg',
+                  color: Colors.black,):SvgPicture.asset('images/bottomBar/chat.svg',
                   width: 23,
                   height: 23,
                   color: Colors.grey[600],),
