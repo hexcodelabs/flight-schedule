@@ -3,7 +3,6 @@ import 'screens/home_screen.dart';
 import 'screens/schedule_screen.dart';
 import 'screens/notification_screen.dart';
 import 'screens/chat_screen.dart';
-import 'tab_item.dart';
 
 class ScreenSelector extends StatefulWidget {
   @override
@@ -30,7 +29,10 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){},
+          child: Icon(Icons.add),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: _buildBottomTab(),
         body: _screenContainer[selectedPosition],
@@ -39,37 +41,51 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   }
 
   _buildBottomTab() {
-    return BottomAppBar(
-      color: Colors.deepPurple,
-      shape: CircularNotchedRectangle(),
-      child: Container(
-        height: 59,
-        padding: const EdgeInsets.fromLTRB(27, 0, 27, 0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            TabItem(icon: Icons.home, isSelected: selectedPosition == 0, onTap: () {
-              setState(() {
-                selectedPosition = 0;
-              });
-            },),
-            TabItem(icon: Icons.person, isSelected: selectedPosition == 1, onTap: () {
-              setState(() {
-                selectedPosition = 1;
-              });
-            },),
-            SizedBox(width: 48,),
-            TabItem(icon: Icons.help, isSelected: selectedPosition == 2, onTap: () {
-              setState(() {
-                selectedPosition = 2;
-              });
-            },),
-            TabItem(icon: Icons.settings, isSelected: selectedPosition == 3, onTap: () {
-              setState(() {
-                selectedPosition = 3;
-              });
-            },),
-          ],
+    return Container(
+      child: BottomAppBar(
+        color: Colors.deepPurple,
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 59,
+          padding: const EdgeInsets.fromLTRB(27, 0, 27, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.home),
+                onPressed: (){
+                    setState(() {
+                      selectedPosition = 0;
+                    });
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: (){
+                  setState(() {
+                    selectedPosition = 1;
+                  });
+                },
+              ),
+              SizedBox(width: 48,),
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: (){
+                  setState(() {
+                    selectedPosition = 2;
+                  });
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: (){
+                  setState(() {
+                    selectedPosition = 3;
+                  });
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
