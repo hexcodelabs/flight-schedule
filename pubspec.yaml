@@ -60,7 +60,7 @@ flutter:
     - images/home_cards/plane.png
     - images/home_cards/money-bill.png
     - images/home_cards/Path.png
-    - images/feather-menu.png
+#    - images/feather-menu.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
