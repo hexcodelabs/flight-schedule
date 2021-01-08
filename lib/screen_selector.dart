@@ -25,6 +25,18 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // automaticallyImplyLeading: false,
+        // leading: Builder(
+        //   builder: (context) => IconButton(
+        //     icon: SvgPicture.asset(
+        //       "images/bottomBar/bell.svg",
+        //       height: 15,
+        //       width: 34,
+        //     ),
+        //     onPressed: () => Scaffold.of(context).openDrawer(),
+        //   ),
+        // ),
+
         iconTheme: IconThemeData(
           color: Colors.black
         ),

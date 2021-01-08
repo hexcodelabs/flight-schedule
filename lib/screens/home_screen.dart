@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -76,17 +78,14 @@ class CardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0)
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SvgPicture.asset(
-            'images/bottomBar/home.svg',
-            width: 23,
-            height: 23,
-            color: Colors.grey[600],
+          Image(
+            image: AssetImage(path),
           ),
           Text(title,
             style: TextStyle(
-              fontFamily: 'OpenSans-Semibold',
+              fontWeight: FontWeight.w600,
               fontSize: 15.0,
             ),
           )
