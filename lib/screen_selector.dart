@@ -1,3 +1,4 @@
+import 'package:air_club/screens/Add_Event.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,9 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         width: 60.0,
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: (){
+              popBottomSheet(context);
+            },
             child: Icon(Icons.add),
           ),
         ),
@@ -165,5 +168,3 @@ class _ScreenSelectorState extends State<ScreenSelector> {
     );
   }
 }
-
-
