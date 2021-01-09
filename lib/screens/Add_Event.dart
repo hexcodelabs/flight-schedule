@@ -260,12 +260,18 @@ Widget AddNewEvent() {
         ),
         Container(
           margin:EdgeInsets.only(left:120,top:20),
-          height: 15,
-          width: 15,
+          // color: Colors.blueGrey,
           child:IconButton(
-            icon:Icon(Icons.clear,color: Colors.black,) ,
-            padding: EdgeInsets.all(0),
-            constraints: BoxConstraints(),
+            icon: Icon(
+              Icons.clear,color: Colors.black,
+              ),
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(0),
+              constraints: BoxConstraints(
+              maxWidth: 15,
+              minHeight: 15,
+            ), onPressed: () {  }
+            ,
           ),
         ),
       ],
