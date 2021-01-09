@@ -52,7 +52,7 @@ class DrawerWidget extends StatelessWidget {
               DrawerTile(icon:Icons.settings,  title:'Settings'),
               DrawerTile(icon:CupertinoIcons.checkmark_shield,  title:'Privacy Policy'),
               SizedBox(
-                height: 60,
+                height: 100,
               ),
               DrawerTile(icon:Icons.logout,  title:'Log Out'),
             ],
