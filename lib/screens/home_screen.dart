@@ -75,21 +75,30 @@ class CardWidget extends StatelessWidget {
             ),
           ],
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0)
+        borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image(
-            image: AssetImage(path),
+      child: Material(
+        borderRadius: BorderRadius.circular(10.0),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10.0),
+          onTap: () {
+            // TODO: Navigate to specific screen
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image(
+                image: AssetImage(path),
+              ),
+              Text(title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
+                ),
+              )
+            ],
           ),
-          Text(title,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 15.0,
-            ),
-          )
-        ],
+        ),
       ),
     ));
   }
