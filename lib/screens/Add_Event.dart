@@ -67,12 +67,14 @@ Widget form(BuildContext context) {
                   child: fillBoxDate("Date",context)),
               Container(
                 margin: EdgeInsets.only(top:35,bottom:0),
+
                 height:60,
                 child: Row(
                   children: [
                     Flexible(
                         flex: 1,
                         child: fillBoxInsert("Start Time")),
+
                     Flexible(
                         flex: 1,
                         child: fillBoxInsert("End")),
@@ -188,7 +190,7 @@ Widget fillBoxInsert(String text) {
           height:40,
           child: TextField(
             decoration: InputDecoration(
-                hintStyle: TextStyle(fontSize: 15.0,fontWeight:FontWeight.bold,color:Colors.black87),
+                hintStyle: TextStyle(fontSize:13.5,fontWeight:FontWeight.bold,color:Colors.black87),
                 hintText: "Leorm Ipsum"
             ),
           ),
@@ -220,7 +222,7 @@ Widget fillBox(String text) {
           height:40,
           child: DropdownButtonFormField(
             isExpanded: true,
-            hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14.0,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
+            hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
               textAlign:TextAlign.start ,) ,
             items: <String>['Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum'].map((String value) {
               return new DropdownMenuItem<String>(
