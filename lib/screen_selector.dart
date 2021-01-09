@@ -5,6 +5,7 @@ import 'screens/home_screen.dart';
 import 'screens/schedule_screen.dart';
 import 'screens/notification_screen.dart';
 import 'screens/chat_screen.dart';
+import 'drawer.dart';
 
 class ScreenSelector extends StatefulWidget {
   @override
@@ -37,21 +38,19 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         //   ),
         // ),
 
-        iconTheme: IconThemeData(
-          color: Colors.black
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [
-          IconButton(icon: Icon(Icons.search_rounded), onPressed: (){}),
+          IconButton(icon: Icon(Icons.search_rounded), onPressed: () {}),
         ],
       ),
-      drawer: Drawer(),
+      drawer: DrawerWidget(),
       floatingActionButton: Container(
         height: 61.0,
         width: 60.0,
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: (){},
+            onPressed: () {},
             child: Icon(Icons.add),
           ),
         ),
@@ -73,18 +72,20 @@ class _ScreenSelectorState extends State<ScreenSelector> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                icon: _selectedPosition==0?SvgPicture.asset(
-                    'images/bottomBar/home.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.black,
-                ):SvgPicture.asset(
-                  'images/bottomBar/home.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.grey[600],
-                ),
-                onPressed: (){
+                icon: _selectedPosition == 0
+                    ? SvgPicture.asset(
+                        'images/bottomBar/home.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.black,
+                      )
+                    : SvgPicture.asset(
+                        'images/bottomBar/home.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.grey[600],
+                      ),
+                onPressed: () {
                   setState(() {
                     _selectedPosition = 0;
                   });
@@ -92,32 +93,44 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 splashRadius: 25,
               ),
               IconButton(
-                icon: _selectedPosition==1?SvgPicture.asset('images/bottomBar/calendar.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.black,):SvgPicture.asset('images/bottomBar/calendar.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.grey[600],),
-                onPressed: (){
+                icon: _selectedPosition == 1
+                    ? SvgPicture.asset(
+                        'images/bottomBar/calendar.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.black,
+                      )
+                    : SvgPicture.asset(
+                        'images/bottomBar/calendar.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.grey[600],
+                      ),
+                onPressed: () {
                   setState(() {
                     _selectedPosition = 1;
                   });
                 },
                 splashRadius: 25,
               ),
-              SizedBox(width: 48,),
+              SizedBox(
+                width: 48,
+              ),
               IconButton(
-                icon: _selectedPosition==2?SvgPicture.asset('images/bottomBar/bell.svg',
-                  width: 25,
-                  height: 25,
-                  color: Colors.black,
-                ):SvgPicture.asset('images/bottomBar/bell.svg',
-                  width: 25,
-                  height: 25,
-                  color: Colors.grey[600],
-                ),
-                onPressed: (){
+                icon: _selectedPosition == 2
+                    ? SvgPicture.asset(
+                        'images/bottomBar/bell.svg',
+                        width: 25,
+                        height: 25,
+                        color: Colors.black,
+                      )
+                    : SvgPicture.asset(
+                        'images/bottomBar/bell.svg',
+                        width: 25,
+                        height: 25,
+                        color: Colors.grey[600],
+                      ),
+                onPressed: () {
                   setState(() {
                     _selectedPosition = 2;
                   });
@@ -125,14 +138,20 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 splashRadius: 25,
               ),
               IconButton(
-                icon: _selectedPosition==3?SvgPicture.asset('images/bottomBar/chat.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.black,):SvgPicture.asset('images/bottomBar/chat.svg',
-                  width: 23,
-                  height: 23,
-                  color: Colors.grey[600],),
-                onPressed: (){
+                icon: _selectedPosition == 3
+                    ? SvgPicture.asset(
+                        'images/bottomBar/chat.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.black,
+                      )
+                    : SvgPicture.asset(
+                        'images/bottomBar/chat.svg',
+                        width: 23,
+                        height: 23,
+                        color: Colors.grey[600],
+                      ),
+                onPressed: () {
                   setState(() {
                     _selectedPosition = 3;
                   });
@@ -146,3 +165,5 @@ class _ScreenSelectorState extends State<ScreenSelector> {
     );
   }
 }
+
+
