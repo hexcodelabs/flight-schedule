@@ -1,3 +1,5 @@
+import 'package:air_club/authentication/signin.dart';
+import 'package:air_club/authentication/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer_util.dart';
 import 'screen_selector.dart';
@@ -18,7 +20,15 @@ class AirClub extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.white,
                 fontFamily: 'Open Sans'
             ),
-            home: ScreenSelector(),
+
+            initialRoute: SignIn.id,
+            routes: {
+              SignIn.id : (context) => SignIn(),
+              SignUp.id : (context) => SignUp(),
+              ScreenSelector.id : (context) => ScreenSelector(),
+            },
+
+            // home: ScreenSelector(),
           );
         },
       );

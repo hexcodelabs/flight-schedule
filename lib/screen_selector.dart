@@ -8,6 +8,7 @@ import 'screens/chat_screen.dart';
 import 'drawer.dart';
 
 class ScreenSelector extends StatefulWidget {
+  static String id = 'screen_selector';
   @override
   _ScreenSelectorState createState() => _ScreenSelectorState();
 }

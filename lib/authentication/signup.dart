@@ -1,19 +1,16 @@
+import 'package:air_club/authentication/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+class SignUp extends StatelessWidget {
+  static String id = 'signup';
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white10,
-        body: Container(
+    return Material(
+        // backgroundColor: Colors.white10,
+        child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -56,14 +53,14 @@ class MyApp extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          "Sign In",
+                          "Sign Up",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 30,
                               fontFamily: 'OpenSans-Bold'),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 10,
                         ),
                         Container(
                           padding: EdgeInsets.all(6),
@@ -87,20 +84,11 @@ class MyApp extends StatelessWidget {
                                 ],
                               ),
                               Container(
-
                                 decoration: BoxDecoration(
                                   border: Border(
                                       bottom: BorderSide(color: Colors.grey)),
-                                  // boxShadow: [
-                                  //   BoxShadow(
-                                  //       color:
-                                  //           Color.fromRGBO(170, 175, 174, .3),
-                                  //       blurRadius: 20,
-                                  //       offset: Offset(0, 10))
-                                  // ],
                                   color: Colors.white,
                                 ),
-
                                 child: Padding(
                                   padding: const EdgeInsets.all(2.0),
                                   child: TextField(
@@ -116,6 +104,47 @@ class MyApp extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                       hintText: "Lorem Imphesm",
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      child: Text(
+                                        "Email",
+                                        style: TextStyle(color: Colors.grey),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.grey)),
+                                  color: Colors.white,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      suffixIcon: Icon(Icons.email, color: Colors.blue.shade400,),
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      hintStyle: TextStyle(
+                                        fontFamily: 'OpenSans-Bold',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      hintText: "Lorem@mail.com",
                                     ),
                                   ),
                                 ),
@@ -164,24 +193,51 @@ class MyApp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 40,
+                                height: 10,
                               ),
                               Column(
                                 children: <Widget>[
                                   Align(
-                                    alignment: Alignment.centerRight,
+                                    alignment: Alignment.centerLeft,
                                     child: Container(
                                       child: Text(
-                                        "Froget Password?",
-                                        style: TextStyle(color: Colors.blue),
+                                        "Confirm Password",
+                                        style: TextStyle(color: Colors.grey),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.grey)),
+                                  color: Colors.white,
+                                ),
+                                child: TextField(
+                                  obscureText: true,
+                                  decoration: InputDecoration(
+                                    suffixIcon: Icon(
+                                      Icons.lock,
+                                      color: Colors.blue.shade400,
+                                    ),
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    hintStyle: TextStyle(
+                                      fontFamily: 'OpenSans-Bold',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    hintText: "****",
+                                    contentPadding: EdgeInsets.all(10.0),
+                                  ),
+                                ),
+                              ),
 
                               SizedBox(
-                                height: 30,
+                                height: 20,
                               ),
                               Container(
                                 height: 50,
@@ -192,18 +248,23 @@ class MyApp extends StatelessWidget {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    "SIGN IN",
+                                    "SIGN UP",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: 100,
+                                height: 10,
                               ),
-                              Text(
-                                "Don't have account ? Sign Up",
-                                style: TextStyle(color: Colors.black),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, SignIn.id);
+                                },
+                                child: Text(
+                                  "Already have an account ? Sign In",
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
                             ],
                           ),
@@ -216,7 +277,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
