@@ -10,6 +10,7 @@ import 'drawer.dart';
 import 'screens/search_screen.dart';
 
 class ScreenSelector extends StatefulWidget {
+  static String id = 'screen_selector';
   @override
   _ScreenSelectorState createState() => _ScreenSelectorState();
 }
