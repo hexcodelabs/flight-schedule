@@ -1,3 +1,4 @@
+import 'package:air_club/screens/Add_Event.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'screens/schedule_screen.dart';
 import 'screens/notification_screen.dart';
 import 'screens/chat_screen.dart';
 import 'drawer.dart';
+import 'screens/search_screen.dart';
 
 class ScreenSelector extends StatefulWidget {
   static String id = 'screen_selector';
@@ -42,7 +44,13 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [
-          IconButton(icon: Icon(Icons.search_rounded), onPressed: () {}),
+          IconButton(icon: Icon(Icons.search_rounded), onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (_){
+                  return SearchScreen();
+                }
+            ));
+          }),
         ],
       ),
       drawer: DrawerWidget(),
@@ -51,7 +59,9 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         width: 60.0,
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: (){
+              popBottomSheet(context);
+            },
             child: Icon(Icons.add),
           ),
         ),
@@ -166,5 +176,3 @@ class _ScreenSelectorState extends State<ScreenSelector> {
     );
   }
 }
-
-
