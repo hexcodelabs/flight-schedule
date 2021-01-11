@@ -148,7 +148,10 @@ class _SearchScreenState extends State<SearchScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  color: Colors.blue[50],
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue[50],
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                   child: Row(
                                     children: [
                                       Container(
