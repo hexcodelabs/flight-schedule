@@ -1,7 +1,6 @@
 import 'dart:ui';
-import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,10 +8,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  double horizontalPadding = 30.w;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+      // height: 525.h,
+      // width: 315.w,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -21,34 +23,34 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.fromLTRB(0, 0, 0, 21),
               child: Text('Categories',
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 20.sp,
                 ),
               )
           ),
-          Expanded(child: Row(
+          Row(
             children: [
               CardWidget(path: 'images/home_cards/flight-time.png', title:'Flight Hours'),
-              SizedBox(width: 23,),
+              SizedBox(width: 23.w,),
               CardWidget(path: 'images/home_cards/document.png', title:'Reports')
             ],
-          )),
-          SizedBox(height: 23),
-          Expanded(child: Row(
+          ),
+          SizedBox(height: 23.h),
+          Row(
             children: [
               CardWidget(path: 'images/home_cards/money-bill.png', title:'Financial'),
-              SizedBox(width: 23,),
+              SizedBox(width: 23.w,),
               CardWidget(path: 'images/home_cards/Path.png', title:'Maintenance')
             ],
-          )),
-          SizedBox(height: 23),
-          Expanded(child: Row(
+          ),
+          SizedBox(height: 23.h),
+          Row(
             children: [
               CardWidget(path: 'images/home_cards/plane.png', title:'Aircraft'),
-              SizedBox(width: 23,),
+              SizedBox(width: 23.w,),
               CardWidget(path: 'images/home_cards/headphone.png', title:'Lorem Ipsum')
             ],
-          )),
-          SizedBox(height: 90,)
+          ),
+          SizedBox(height: 90.h,)
         ],
       ),
     );
@@ -63,8 +65,8 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(child: Container(
-      height: 146,
-      width: 146,
+      height: 146.h,
+      width: 146.w,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -88,12 +90,14 @@ class CardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image(
+                width: 43.w,
+                height: 43.h,
                 image: AssetImage(path),
               ),
               Text(title,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
+                  fontSize: 15.sp,
                 ),
               )
             ],
