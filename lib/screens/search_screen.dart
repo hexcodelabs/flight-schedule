@@ -101,6 +101,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             children: [
                               Container(
                                 width: 271.w,
+                                padding: EdgeInsets.symmetric(horizontal: 5.w),
                                 decoration: BoxDecoration(
                                   color: Colors.blue[50],
                                   borderRadius: BorderRadius.circular(15.0),
