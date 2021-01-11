@@ -48,8 +48,8 @@ class SignIn extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(60),
-                        topRight: Radius.circular(60))),
+                        topLeft: Radius.circular(30.w),
+                        topRight: Radius.circular(30.w))),
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
                   child: Column(

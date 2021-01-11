@@ -49,8 +49,8 @@ class SignUp extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60.w),
-                          topRight: Radius.circular(60.w))),
+                          topLeft: Radius.circular(30.w),
+                          topRight: Radius.circular(30.w))),
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
                     child: Column(
