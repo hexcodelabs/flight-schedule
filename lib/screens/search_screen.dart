@@ -65,7 +65,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 33, top: 40),
+//                color: Colors.grey,
+                margin: EdgeInsets.only(left: 33, top: 20),
                 alignment: Alignment.topLeft,
                 child: Text("Search Result", style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold ),),
               ),
@@ -79,57 +80,108 @@ class _SearchScreenState extends State<SearchScreen> {
                 alignment: Alignment.topLeft,
                 child: Text("Fri 27", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold ),),
               ),
-              Container(
-                padding: EdgeInsets.only(left: 30, top: 50),
-                alignment: Alignment.topLeft,
-                child: Text("09AM", style: TextStyle(fontSize: 15.0, color: Colors.grey),),
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 30),
-                  child: Divider(thickness: 2,)
-              ),
-              Container(
-                height: 150.0,
-                margin: EdgeInsets.only(left:74.0, right: 30.0),
-                padding: EdgeInsets.only(left: 40.0, right: 10.0),
-                decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      color: Colors.blue[50]),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-//                    Padding(padding: EdgeInsets.only(left: 10.0, right: 10.0),
-//                        child: CircleAvatar(radius: 35.0, backgroundImage: NetworkImage('https://wallpapercave.com/wp/wp2365076.jpg'),)
-//                    ),
-                    Expanded(child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Actor Name', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
-                        SizedBox(height: 8.0,),
-                        Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),),
-                        SizedBox(height: 10.0,),
-                        Text('Student Name', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
-                      ],)),
-                    Padding(padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                                child: CircleAvatar(radius: 35.0, backgroundImage: NetworkImage('https://wallpapercave.com/wp/wp2365076.jpg'),)
+             Container (
+               margin: EdgeInsets.only(left: 10.0),
+                  height:  MediaQuery.of(context).size.height*.80,
+//                  color: Colors.grey,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Row(
+                          children: <Widget>[
+                            Text("09AM"),
+                            Expanded(
+                                child: Divider(thickness: 3.0,)
                             ),
-                          ],))
+                          ]
+                      ),
+                      ListTile(
+                        title: Container(
+//                            color:Colors.lightBlueAccent,
+                            child: Column(
+                              children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue[50],
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+//                                    color: Colors.blue[50],
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                            width:MediaQuery.of(context).size.width*0.75,
+                                            height: 100,
+                                            padding: EdgeInsets.only(left: 5.0, top: 10.0),
+//                                            color: Colors.amberAccent,
+                                            child: Column(
+                                              children: [
+                                                Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
+                                                SizedBox(height: 4.0,width: 2.0,),
+                                                Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
+                                                SizedBox(height: 6.0,),
+                                                Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                              ],
+                                            ),
+                                          ),
+                                          Icon(
+                                              Icons.account_circle,size: 60,
+                                            )
+                                      ],
+                                    ),
+                                  )
 
-                  ],),
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 30),
-                alignment: Alignment.topLeft,
-                child: Text("10AM", style: TextStyle(fontSize: 15.0, color: Colors.grey),),
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 30),
-                  child: Divider(thickness: 2,)
-              ),
+                              ],
+                            )),
+
+                      ),
+                      Row(
+                          children: <Widget>[
+                            Text("10AM"),
+                            Expanded(
+                                child: Divider(thickness: 3.0,)
+                            ),
+                          ]
+                      ),
+                      ListTile(
+                        title: Container(
+//                            color:Colors.lightBlueAccent,
+                            child: Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue[50],
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width:MediaQuery.of(context).size.width*0.75,
+                                        height: 100,
+                                        padding: EdgeInsets.only(left: 5.0, top: 10.0),
+//                                            color: Colors.amberAccent,
+                                        child: Column(
+                                          children: [
+                                            Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                            SizedBox(height: 4.0,),
+                                            Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
+                                            SizedBox(height: 6.0,),
+                                            Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                          ],
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.account_circle,size: 60,
+                                      )
+                                    ],
+                                  ),
+                                )
+
+                              ],
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),
