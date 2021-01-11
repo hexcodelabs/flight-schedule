@@ -1,4 +1,4 @@
-import 'package:air_club/screens/Add_Event.dart';
+import 'package:air_club/screens/add_event.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,7 +45,10 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [
-          IconButton(icon: Icon(Icons.search_rounded), onPressed: () {
+          IconButton(
+            splashRadius: 20,
+              icon: Icon(Icons.search_rounded),
+              onPressed: () {
             Navigator.of(context).push(
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) => SearchScreen(),
