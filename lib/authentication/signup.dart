@@ -1,7 +1,7 @@
 import 'package:air_club/authentication/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUp extends StatelessWidget {
   static String id = 'signup';
@@ -20,50 +20,54 @@ class SignUp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 80,
+                height: 50.h,
               ),
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       child: Image(
+                        width: 162.w,
+                        height: 114.h,
                         image: AssetImage('images/logo.png'),
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 5.h,
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               Expanded(
                 child: Container(
+                  height:  680.h,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60),
-                          topRight: Radius.circular(60))),
+                          topLeft: Radius.circular(30.w),
+                          topRight: Radius.circular(30.w))),
                   child: Padding(
-                    padding: EdgeInsets.all(30),
+                    padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
                     child: Column(
                       children: <Widget>[
                         Text(
                           "Sign Up",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 30,
-                              fontFamily: 'OpenSans-Bold'),
+                              fontSize: 30.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Open Sans'),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 10.h,
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5),
@@ -90,7 +94,7 @@ class SignUp extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: Icon(Icons.account_circle, color: Colors.blue.shade400,),
@@ -109,7 +113,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -131,7 +135,7 @@ class SignUp extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: Icon(Icons.email, color: Colors.blue.shade400,),
@@ -150,7 +154,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -188,12 +192,12 @@ class SignUp extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                     hintText: "****",
-                                    contentPadding: EdgeInsets.all(10.0),
+                                    contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -231,31 +235,31 @@ class SignUp extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                     hintText: "****",
-                                    contentPadding: EdgeInsets.all(10.0),
+                                    contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
                                   ),
                                 ),
                               ),
 
                               SizedBox(
-                                height: 20,
+                                height: 20.h,
                               ),
                               Container(
-                                height: 50,
-                                margin: EdgeInsets.symmetric(horizontal: 50),
+                                height: 50.h,
+                                margin: EdgeInsets.symmetric(horizontal: 50.w),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(50.w),
                                   color: Colors.blue,
                                 ),
                                 child: Center(
                                   child: Text(
                                     "SIGN UP",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 16),
+                                        color: Colors.white, fontSize: 16.sp),
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 10.h,
                               ),
                               TextButton(
                                 onPressed: () {

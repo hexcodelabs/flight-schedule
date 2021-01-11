@@ -72,108 +72,108 @@ class _SearchScreenState extends State<SearchScreen> {
                 alignment: Alignment.topLeft,
                 child: Text("Fri 27", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold ),),
               ),
-             Container (
-               margin: EdgeInsets.only(left: 10.0),
-                  height:  MediaQuery.of(context).size.height*.80,
+              Container (
+                margin: EdgeInsets.only(left: 10.0),
+                height:  MediaQuery.of(context).size.height*.80,
 //                  color: Colors.grey,
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Row(
-                          children: <Widget>[
-                            Text("09AM"),
-                            Expanded(
-                                child: Divider(thickness: 3.0,)
-                            ),
-                          ]
-                      ),
-                      ListTile(
-                        title: Container(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Row(
+                        children: <Widget>[
+                          Text("09AM"),
+                          Expanded(
+                              child: Divider(thickness: 3.0,)
+                          ),
+                        ]
+                    ),
+                    ListTile(
+                      title: Container(
 //                            color:Colors.lightBlueAccent,
-                            child: Column(
-                              children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue[50],
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[50],
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
 //                                    color: Colors.blue[50],
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                            width:MediaQuery.of(context).size.width*0.75,
-                                            height: 100,
-                                            padding: EdgeInsets.only(left: 5.0, top: 10.0),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width:MediaQuery.of(context).size.width*0.75,
+                                      height: 100,
+                                      padding: EdgeInsets.only(left: 5.0, top: 10.0),
 //                                            color: Colors.amberAccent,
-                                            child: Column(
-                                              children: [
-                                                Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
-                                                SizedBox(height: 4.0,width: 2.0,),
-                                                Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
-                                                SizedBox(height: 6.0,),
-                                                Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
-                                              ],
-                                            ),
-                                          ),
-                                          Icon(
-                                              Icons.account_circle,size: 60,
-                                            )
-                                      ],
-                                    ),
-                                  )
-
-                              ],
-                            )),
-
-                      ),
-                      Row(
-                          children: <Widget>[
-                            Text("10AM"),
-                            Expanded(
-                                child: Divider(thickness: 3.0,)
-                            ),
-                          ]
-                      ),
-                      ListTile(
-                        title: Container(
-//                            color:Colors.lightBlueAccent,
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue[50],
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width:MediaQuery.of(context).size.width*0.75,
-                                        height: 100,
-                                        padding: EdgeInsets.only(left: 5.0, top: 10.0),
-//                                            color: Colors.amberAccent,
-                                        child: Column(
-                                          children: [
-                                            Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
-                                            SizedBox(height: 4.0,),
-                                            Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
-                                            SizedBox(height: 6.0,),
-                                            Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
-                                          ],
-                                        ),
+                                      child: Column(
+                                        children: [
+                                          Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
+                                          SizedBox(height: 4.0,width: 2.0,),
+                                          Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
+                                          SizedBox(height: 6.0,),
+                                          Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                        ],
                                       ),
-                                      Icon(
-                                        Icons.account_circle,size: 60,
-                                      )
-                                    ],
-                                  ),
-                                )
+                                    ),
+                                    Icon(
+                                      Icons.account_circle,size: 60,
+                                    )
+                                  ],
+                                ),
+                              )
 
-                              ],
-                            )),
-                      ),
-                    ],
-                  ),
+                            ],
+                          )),
+
+                    ),
+                    Row(
+                        children: <Widget>[
+                          Text("10AM"),
+                          Expanded(
+                              child: Divider(thickness: 3.0,)
+                          ),
+                        ]
+                    ),
+                    ListTile(
+                      title: Container(
+//                            color:Colors.lightBlueAccent,
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[50],
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width:MediaQuery.of(context).size.width*0.75,
+                                      height: 100,
+                                      padding: EdgeInsets.only(left: 5.0, top: 10.0),
+//                                            color: Colors.amberAccent,
+                                      child: Column(
+                                        children: [
+                                          Text('Actor Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                          SizedBox(height: 4.0,),
+                                          Text('CESSNA 152', style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
+                                          SizedBox(height: 6.0,),
+                                          Text('Student Name', style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                                        ],
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.account_circle,size: 60,
+                                    )
+                                  ],
+                                ),
+                              )
+
+                            ],
+                          )),
+                    ),
+                  ],
                 ),
+              ),
             ],
           ),
         ),
@@ -181,4 +181,3 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 }
-
