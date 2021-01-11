@@ -46,7 +46,7 @@ Widget form(BuildContext context) {
             children: <Widget>[
               Container(
                 // color: Colors.blueGrey,
-                  child: AddNewEvent()),
+                  child: AddNewEvent(context)),
               Container(
                 // color: Colors.blueGrey,
                   margin: EdgeInsets.only(top:35,bottom:0),
@@ -241,7 +241,7 @@ Widget fillBox(String text) {
   );
 }
 
-Widget AddNewEvent() {
+Widget AddNewEvent(BuildContext context) {
   return Align(
     alignment: Alignment.center,
     child: Row(
@@ -270,8 +270,7 @@ Widget AddNewEvent() {
               constraints: BoxConstraints(
               maxWidth: 15,
               minHeight: 15,
-            ), onPressed: () {  }
-            ,
+            ),  onPressed: () => Navigator.pop(context, true),
           ),
         ),
       ],
