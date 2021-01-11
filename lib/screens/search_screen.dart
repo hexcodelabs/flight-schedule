@@ -7,13 +7,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  String text="";
-
-  void func(text) {
-    setState(() {
-      this.text = "\"" +text +"\"";
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +37,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   cursorColor: Colors.black,
                   style: TextStyle(fontSize: 20.0),
-                  onChanged: func,
                 ),
                 decoration:BoxDecoration(
                   color: Colors.white,
@@ -73,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
               Container(
                 padding: EdgeInsets.only(left: 33, top: 20),
                 alignment: Alignment.topLeft,
-                child: Text("${this.text}", style: TextStyle(fontSize: 20.0, color: Colors.grey),),
+                child: Text("\"Lorem Ipsum\"", style: TextStyle(fontSize: 20.0, color: Colors.grey),),
               ),
               Container(
                 padding: EdgeInsets.only(left: 30, top: 50),
