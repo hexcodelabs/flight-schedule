@@ -1,24 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class NewReg extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-
-      child:Scaffold(
-        floatingActionButton:FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: (){
-            popBottomSheet(context);
-          },
-        ),floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      ),
-    );
-  }
-
-}
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void popBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -30,7 +12,7 @@ void popBottomSheet(BuildContext context) {
       context: context, builder:(BuildContext bc){
     return Container(
 
-      height: MediaQuery.of(context).size.height*.86,
+      height: 680.h,
       child:  form(context) ,
     );
   });
@@ -38,9 +20,9 @@ void popBottomSheet(BuildContext context) {
 
 Widget form(BuildContext context) {
   return Container(
-    margin:EdgeInsets.only(left: 30,right: 30),
+    margin:EdgeInsets.only(left: 30.w,right: 30.w),
     padding: EdgeInsets.zero,
-    child:ListView(
+    child:Column(
         children:<Widget> [
           Column(
             children: <Widget>[
@@ -49,26 +31,26 @@ Widget form(BuildContext context) {
                   child: AddNewEvent(context)),
               Container(
                 // color: Colors.blueGrey,
-                  margin: EdgeInsets.only(top:35,bottom:0),
-                  height:60,
+                  margin: EdgeInsets.only(top:35.h,bottom:0),
+                  height:60.h,
                   child: fillBox("Flight Instructor")),
               Container(
 
-                  margin: EdgeInsets.only(top:35,bottom:0),
-                  height:60,
+                  margin: EdgeInsets.only(top:35.h,bottom:0),
+                  height:60.h,
                   child:fillBoxInsert("Student")),
               Container(
-                  margin: EdgeInsets.only(top:35,bottom:0),
-                  height:60,
+                  margin: EdgeInsets.only(top:35.h,bottom:0),
+                  height:60.h,
                   child: fillBox("Aircraft")),
               Container(
-                  margin: EdgeInsets.only(top:35,bottom:0),
-                  height:60,
+                  margin: EdgeInsets.only(top:35.h,bottom:0),
+                  height:60.h,
                   child: fillBoxDate("Date",context)),
               Container(
-                margin: EdgeInsets.only(top:35,bottom:0),
+                margin: EdgeInsets.only(top:35.h,bottom:0),
+                height:60.h,
 
-                height:60,
                 child: Row(
                   children: [
                     Flexible(
@@ -82,7 +64,6 @@ Widget form(BuildContext context) {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom:50),
                 child: button("Add"),
               )
             ],
@@ -94,13 +75,13 @@ Widget form(BuildContext context) {
 
 Widget button(String text) {
   return Container(
-    margin: EdgeInsets.only(top:35,bottom:0),
-    width: 207,
-    height:47,
+    margin: EdgeInsets.only(top:50.h,bottom:0.h),
+    width: 207.w,
+    height:47.w,
     child:
     RaisedButton(
       onPressed: (){},
-      child: Text(text,style: TextStyle(fontSize: 16,fontFamily:'OpenSans-Bold',color: Colors.white),),
+      child: Text(text,style: TextStyle(fontSize: 16.sp,fontFamily:'OpenSans-Bold',color: Colors.white),),
       color: Colors.blue,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
@@ -122,7 +103,7 @@ Widget fillBoxDate(String text,BuildContext context) {
           child:
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(text,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,fontFamily:'OpenSans',),),
+            child: Text(text,style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w400,fontFamily:'OpenSans',),),
           )
       ),
       Container(
@@ -133,16 +114,16 @@ Widget fillBoxDate(String text,BuildContext context) {
         child: Align(
           alignment: Alignment.centerLeft,
           child: Container(
-            height:40,
+            height:40.h,
             child: DropdownButton(
 
               icon: Container(
                   alignment: Alignment.centerRight,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: 204),
+                  margin: EdgeInsets.only(left: 204.w),
                   child: IconButton(
-                    icon:Icon(Icons.arrow_drop_down,size:25,),
+                    icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(),
@@ -159,7 +140,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                   )),
               hint:Container(
 
-                  child: Text("Select Date",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans'),)),
+                  child: Text("Select Date",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans'),)),
 
             ),
           ),
@@ -181,17 +162,17 @@ Widget fillBoxInsert(String text) {
           child:
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(text,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,fontFamily:'OpenSans',),),
+            child: Text(text,style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w400,fontFamily:'OpenSans',),),
           )
       ),
       Container(
         margin: EdgeInsets.only(top:0),
         // color: Colors.blue,
         child: Container(
-          height:40,
+          height:40.h,
           child: TextField(
             decoration: InputDecoration(
-                hintStyle: TextStyle(fontSize:13.5,fontWeight:FontWeight.bold,color:Colors.black87),
+                hintStyle: TextStyle(fontSize:13.5.sp,fontWeight:FontWeight.bold,color:Colors.black87),
                 hintText: "Leorm Ipsum"
             ),
           ),
@@ -213,22 +194,22 @@ Widget fillBox(String text) {
           child:
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(text,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,fontFamily:'OpenSans'),),
+            child: Text(text,style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w400,fontFamily:'OpenSans'),),
           )
       ),
       Container(
         margin: EdgeInsets.only(top:0),
         // color: Colors.blue,
         child: Container(
-          height:40,
+          height:40.h,
           child: DropdownButtonFormField(
             isExpanded: true,
-            hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
+            hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
               textAlign:TextAlign.start ,) ,
             items: <String>['Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum'].map((String value) {
               return new DropdownMenuItem<String>(
                 value: value,
-                child: Text(value,style:TextStyle(fontSize: 14.0,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
+                child: Text(value,style:TextStyle(fontSize: 14.0.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
 
                 ),
               );
@@ -242,38 +223,38 @@ Widget fillBox(String text) {
 }
 
 Widget AddNewEvent(BuildContext context) {
-  return Align(
-    alignment: Alignment.center,
-    child: Row(
-      children: [
-        (
-            Container(
-              margin:EdgeInsets.only(top:20),
-              height:25,
-              width: 154,
-              // color: Colors.blue,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child:Text("Add New Event",style: TextStyle(color: Colors.black87,fontWeight: FontWeight.bold,fontSize: 22,fontFamily: 'OpenSans-Bold'),),
-              ),
-            )
-        ),
-        Container(
-          margin:EdgeInsets.only(left:120,top:20),
-          // color: Colors.blueGrey,
-          child:IconButton(
-            icon: Icon(
-              Icons.clear,color: Colors.black,
-              ),
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(0),
-              constraints: BoxConstraints(
-              maxWidth: 15,
-              minHeight: 15,
-            ),  onPressed: () => Navigator.pop(context, true),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      (
+          Container(
+            margin:EdgeInsets.only(top:30.h),
+            height:25.h,
+            width: 154.w,
+            // color: Colors.blue,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child:Text("Add New Event",style: TextStyle(color: Colors.black87,fontWeight: FontWeight.bold,fontSize: 22.sp,fontFamily: 'OpenSans-Bold'),),
+            ),
+          )
+      ),
+      Container(
+        margin:EdgeInsets.only(top:20.h),
+        // color: Colors.blueGrey,
+        child:IconButton(
+          splashRadius: 20.w,
+          iconSize: 15.w,
+          icon: Icon(
+            Icons.clear,color: Colors.black,
           ),
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(0),
+          constraints: BoxConstraints(
+            maxWidth: 15.w,
+            minHeight: 15.h,
+          ),  onPressed: () => Navigator.pop(context, true),
         ),
-      ],
-    ),
+      ),
+    ],
   );
 }
