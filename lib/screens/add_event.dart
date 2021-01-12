@@ -121,7 +121,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                   alignment: Alignment.centerRight,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: 204.w),
+                  margin: EdgeInsets.only(left: 225.w),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
@@ -201,12 +201,12 @@ Widget fillBox(String text) {
         margin: EdgeInsets.only(top:0),
         // color: Colors.blue,
         child: Container(
-          height:40.h,
+          height:42.h,
           child: DropdownButtonFormField(
             isExpanded: true,
             hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
               textAlign:TextAlign.start ,) ,
-            items: <String>['Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum', 'Leorm Ipsum'].map((String value) {
+            items: <String>['Leorm Ipsum', 'Leorm', 'Leorm 1 Ipsum', 'Leorm 2Ipsum'].map((String value) {
               return new DropdownMenuItem<String>(
                 value: value,
                 child: Text(value,style:TextStyle(fontSize: 14.0.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
@@ -239,7 +239,7 @@ Widget AddNewEvent(BuildContext context) {
           )
       ),
       Container(
-        margin:EdgeInsets.only(top:20.h),
+        margin:EdgeInsets.only(top:30.h),
         // color: Colors.blueGrey,
         child:IconButton(
           splashRadius: 20.w,
