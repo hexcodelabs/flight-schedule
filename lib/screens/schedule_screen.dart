@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
+  static String id = 'schedule_screen';
   @override
   _ScheduleScreenState createState() => _ScheduleScreenState();
 }
