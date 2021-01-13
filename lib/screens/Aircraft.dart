@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Aircraft extends StatefulWidget {
+  static String id = 'aircrafts';
   @override
   
   _Aircraft createState() => _Aircraft();
