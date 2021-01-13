@@ -176,23 +176,14 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      // Padding(
-                      //   padding: EdgeInsets.only(left:15,top:15,right:15 ,bottom:2 ),
-                      //   child:new Text(
-                      //    // data['time'],
-                      //     style: TextStyle(
-                      //         fontSize: 15,
-                      //         fontWeight: FontWeight.bold),
-                      //   ),
-                      // ),
                     ],
                   ),
 
                 ),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name'),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name'),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name'),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name'),
+                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
+                //as example.....
+                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
+                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
 
 
               ],
@@ -204,55 +195,80 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     );
   }
 }
-Widget containerMaker( String str1, String str2, String str3){
+Widget containerMaker( String str1, String str2, String str3, String startTime, String endTime){
   return Container(
-      margin: const EdgeInsets.only(left: 74, right: 30,bottom: 50),
-      height: 101,
-      width: 197,
 
-      decoration: BoxDecoration(
-        color: _backGround(),
-        borderRadius: BorderRadius.circular(10),
-      ),
+      padding: EdgeInsets.only(left: 44.0),
+//                            color:Colors.lightBlueAccent,
+      child: Column(
+        children: [
+          //padding: EdgeInsets.only(left:30,top:5,right:0 ,bottom:5 ),
+          Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(startTime,
+                  style: TextStyle(
+                      fontSize: 12
+                  ),),
+                Expanded(
+                    child: Divider(thickness: 3.0,)
+                ),
+              ]
+          ),
+          Container(
+            width: 271,
+            padding: EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              color: _backGround(),
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+//                                    color: Colors.blue[50],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
 
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left:15,top:15,right:15 ,bottom:2 ),
-            child:new Text(
-              str1,
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
+                  // width:MediaQuery.of(context).size.width*0.75,
+                  height: 100,
+                  padding: EdgeInsets.only(left: 5.0, top: 10.0),
+//                                            color: Colors.amberAccent,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(str1, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
+                      SizedBox(height: 4.0,width: 2.0,),
+                      Text(str2, style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
+                      SizedBox(height: 6.0,),
+                      Text(str3, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+                    ],
+                  ),
+                ),
+                Icon(
+                  Icons.account_circle,size: 60,
+                )
+              ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(left:14,top:0,right:189 ,bottom:10 ),
-            child:new Text(
-              str2,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left:14,top:0,right:0 ,bottom:10 ),
-            child:new Text(
-              str3,
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+          Row(
 
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(endTime,
+                  style: TextStyle(
+                      fontSize: 12
+                  ),),
+                Expanded(
+                    child: Divider(thickness: 3.0,)
+                ),
+              ]
+          ),
 
         ],
       )
+
+
   );
 }
-
 Color _backGround(){
   Color color;
   if(flag==0){
