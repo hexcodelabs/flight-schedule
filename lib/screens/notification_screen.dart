@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatefulWidget {
+  static String id = 'notification_screen';
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }
