@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchScreen extends StatefulWidget {
+  static String id = 'search_screen';
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
@@ -71,7 +72,7 @@ class _SearchScreenState extends State<SearchScreen> {
           padding: EdgeInsets.only(left: 29.w),
           icon: Icon(Icons.arrow_back_ios),
           onPressed: (){
-            Navigator.pop(context, HomeScreen());
+            Navigator.pop(context);
           },
         ),
       ),
