@@ -20,7 +20,7 @@ class SignUp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
@@ -41,7 +41,7 @@ class SignUp extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Expanded(
                 child: Container(
@@ -64,7 +64,7 @@ class SignUp extends StatelessWidget {
                               fontFamily: 'Open Sans'),
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w),
@@ -113,7 +113,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 5.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -154,7 +154,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 5.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -197,7 +197,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 5.h,
                               ),
                               Column(
                                 children: <Widget>[
@@ -241,7 +241,7 @@ class SignUp extends StatelessWidget {
                               ),
 
                               SizedBox(
-                                height: 20.h,
+                                height: 5.h,
                               ),
                               Container(
                                 height: 50.h,
@@ -259,7 +259,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 3.h,
                               ),
                               TextButton(
                                 onPressed: () {

@@ -10,6 +10,7 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -20,7 +21,7 @@ class SignIn extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 50.h,
+              height: 30.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
@@ -204,7 +205,7 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: 75.h,
+                              height: 50.h,
                             ),
                             TextButton(
                               onPressed: () {
