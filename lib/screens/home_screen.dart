@@ -30,17 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              CardWidget(path: 'images/home_cards/flight-time.png', title:'Flight Hours', route: ""),
+              CardWidget(path: 'images/home_cards/flight-time.png', title:'Flight Hours', route: "homepage"),
               SizedBox(width: 23.w,),
-              CardWidget(path: 'images/home_cards/document.png', title:'Reports', route: "")
+              CardWidget(path: 'images/home_cards/document.png', title:'Reports', route: "homepage")
             ],
           ),
           SizedBox(height: 23.h),
           Row(
             children: [
-              CardWidget(path: 'images/home_cards/money-bill.png', title:'Financial', route: ""),
+              CardWidget(path: 'images/home_cards/money-bill.png', title:'Financial', route: "homepage"),
               SizedBox(width: 23.w,),
-              CardWidget(path: 'images/home_cards/Path.png', title:'Maintenance', route: "")
+              CardWidget(path: 'images/home_cards/Path.png', title:'Maintenance', route: "homepage")
             ],
           ),
           SizedBox(height: 23.h),
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               CardWidget(path: 'images/home_cards/plane.png', title:'Aircraft', route: "aircrafts"),
               SizedBox(width: 23.w,),
-              CardWidget(path: 'images/home_cards/headphone.png', title:'Lorem Ipsum', route: "")
+              CardWidget(path: 'images/home_cards/headphone.png', title:'Lorem Ipsum', route: "homepage")
             ],
           ),
           SizedBox(height: 90.h,)

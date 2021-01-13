@@ -1,6 +1,6 @@
 import 'package:air_club/authentication/signin.dart';
 import 'package:air_club/authentication/signup.dart';
-import 'package:air_club/screens/Aircraft.dart';
+import 'package:air_club/screens/aircraft.dart';
 import 'package:air_club/screens/chat_screen.dart';
 import 'package:air_club/screens/home_screen.dart';
 import 'package:air_club/screens/notification_screen.dart';
