@@ -8,6 +8,57 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+
+  Widget line() {
+    return Row(
+        children: <Widget>[
+          Text("09AM",
+            style: TextStyle(
+                fontSize: 12.sp
+            ),),
+          Expanded(
+              child: Divider(thickness: 3.0,)
+          ),
+        ]
+    );
+  }
+
+  Widget content() {
+    return Container(
+      width: 271.w,
+      padding: EdgeInsets.symmetric(horizontal: 5.w),
+      decoration: BoxDecoration(
+        color: Colors.blue[50],
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+//                                    color: Colors.blue[50],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            // width:MediaQuery.of(context).size.width*0.75,
+            height: 100.h,
+            padding: EdgeInsets.only(left: 5.0.w, top: 10.0.h),
+//                                            color: Colors.amberAccent,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Actor Name', style: TextStyle(fontSize: 17.0.sp, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
+                SizedBox(height: 4.0.h,width: 2.0.w,),
+                Text('CESSNA 152', style: TextStyle(fontSize: 12.0.sp, color: Colors.grey),textAlign: TextAlign.left),
+                SizedBox(height: 6.0.h,),
+                Text('Student Name', style: TextStyle(fontSize: 17.0.sp, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
+              ],
+            ),
+          ),
+          Icon(
+            Icons.account_circle,size: 60,
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,17 +132,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   padding: EdgeInsets.only(left: 30.0.w),
                   scrollDirection: Axis.vertical,
                   children: [
-                    Row(
-                        children: <Widget>[
-                          Text("09AM",
-                          style: TextStyle(
-                            fontSize: 12.sp
-                          ),),
-                          Expanded(
-                              child: Divider(thickness: 3.0,)
-                          ),
-                        ]
-                    ),
+                    line(),
                     ListTile(
 
                       title: Container(
@@ -99,40 +140,7 @@ class _SearchScreenState extends State<SearchScreen> {
 //                            color:Colors.lightBlueAccent,
                           child: Column(
                             children: [
-                              Container(
-                                width: 271.w,
-                                padding: EdgeInsets.symmetric(horizontal: 5.w),
-                                decoration: BoxDecoration(
-                                  color: Colors.blue[50],
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-//                                    color: Colors.blue[50],
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      // width:MediaQuery.of(context).size.width*0.75,
-                                      height: 100.h,
-                                      padding: EdgeInsets.only(left: 5.0.w, top: 10.0.h),
-//                                            color: Colors.amberAccent,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Actor Name', style: TextStyle(fontSize: 17.0.sp, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
-                                          SizedBox(height: 4.0.h,width: 2.0.w,),
-                                          Text('CESSNA 152', style: TextStyle(fontSize: 12.0.sp, color: Colors.grey),textAlign: TextAlign.left),
-                                          SizedBox(height: 6.0.h,),
-                                          Text('Student Name', style: TextStyle(fontSize: 17.0.sp, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
-                                        ],
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.account_circle,size: 60,
-                                    )
-                                  ],
-                                ),
-                              )
-
+                              content(),
                             ],
                           )),
 
