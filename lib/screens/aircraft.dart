@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Aircraft extends StatefulWidget {
@@ -14,19 +15,29 @@ class _Aircraft extends State<Aircraft> {
     return Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
+            backgroundColor: Colors.blue[900],
             elevation: 0,
+            leading: IconButton(
+              splashRadius: 20,
+              padding: EdgeInsets.only(left: 29),
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
           ),
           body:ListView(
               children: [
                      ClipPath(
                        clipper: MyClipper(),
                        child: Container(
-                        height: MediaQuery.of(context).size.height*.25,
+                         padding: EdgeInsets.only(bottom: 25 ),
+                        height: MediaQuery.of(context).size.height*.10,
                         decoration: BoxDecoration(
-                          color: Colors.blue
+                          color: Colors.blue[900],
                         ),
                         child: Center(
-                            child: Text("AirCraft",style:TextStyle(fontSize:60,color: Colors.white),)),
+                            child: Text("AirCraft",style:TextStyle(fontSize:40,color: Colors.white),)),
                     ),),
                 Container(
                   margin: EdgeInsets.only(right: 10, left: 10,top: 20),
@@ -72,7 +83,7 @@ class MyClipper  extends CustomClipper<Path>{
   Path getClip(Size size) {
     var path = Path();
     path.lineTo(0, size.height-70);
-    var controllPoint = Offset(50, size.height);
+    var controllPoint = Offset(25, size.height);
     var endPoint = Offset(size.width/2, size.height);
     path.quadraticBezierTo(controllPoint.dx, controllPoint.dy, endPoint.dx, endPoint.dy);
     path.lineTo(size.width,size.height);
