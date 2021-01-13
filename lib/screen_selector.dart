@@ -1,3 +1,5 @@
+import 'package:air_club/screens/add_event.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +8,10 @@ import 'screens/schedule_screen.dart';
 import 'screens/notification_screen.dart';
 import 'screens/chat_screen.dart';
 import 'drawer.dart';
+import 'screens/search_screen.dart';
 
 class ScreenSelector extends StatefulWidget {
+  static String id = 'screen_selector';
   @override
   _ScreenSelectorState createState() => _ScreenSelectorState();
 }
@@ -41,23 +45,55 @@ class _ScreenSelectorState extends State<ScreenSelector> {
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         actions: [
-          IconButton(icon: Icon(Icons.search_rounded), onPressed: () {}),
+          IconButton(
+            splashRadius: 20,
+              icon: Icon(Icons.search_rounded),
+              onPressed: () {
+            Navigator.of(context).push(
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) => SearchScreen(),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1.0, 0.0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: const Offset(1.0, 0.0),
+                      ).animate(secondaryAnimation),
+                      child: child,
+                    ),
+                  );
+                }
+              )
+//                MaterialPageRoute(
+//                  builder: (_){
+//                    return SearchScreen();
+//                  }
+//                )
+            );
+          }),
         ],
       ),
       drawer: DrawerWidget(),
       floatingActionButton: Container(
-        height: 61.0,
-        width: 60.0,
+        height: 61.h,
+        width: 60.w,
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: (){
+              popBottomSheet(context);
+            },
             child: Icon(Icons.add),
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomTab(),
-      body: SafeArea(child: _screenContainer[_selectedPosition]),
+      body: SafeArea(child: _screenContainer[_selectedPosition]
+      ),
     );
   }
 
@@ -66,8 +102,8 @@ class _ScreenSelectorState extends State<ScreenSelector> {
       child: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Container(
-          height: 59,
-          padding: const EdgeInsets.fromLTRB(27, 0, 27, 0),
+          height: 59.h,
+          padding: EdgeInsets.fromLTRB(27.w, 0, 27.w, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -75,14 +111,14 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 icon: _selectedPosition == 0
                     ? SvgPicture.asset(
                         'images/bottomBar/home.svg',
-                        width: 23,
-                        height: 23,
+                        width: 23.w,
+                        height: 23.h,
                         color: Colors.black,
                       )
                     : SvgPicture.asset(
                         'images/bottomBar/home.svg',
-                        width: 23,
-                        height: 23,
+                        width: 23.w,
+                        height: 23.h,
                         color: Colors.grey[600],
                       ),
                 onPressed: () {
@@ -96,14 +132,14 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 icon: _selectedPosition == 1
                     ? SvgPicture.asset(
                         'images/bottomBar/calendar.svg',
-                        width: 23,
-                        height: 23,
+                        width: 23.w,
+                        height: 23.h,
                         color: Colors.black,
                       )
                     : SvgPicture.asset(
                         'images/bottomBar/calendar.svg',
-                        width: 23,
-                        height: 23,
+                        width: 23.w,
+                        height: 23.h,
                         color: Colors.grey[600],
                       ),
                 onPressed: () {
@@ -114,20 +150,20 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 splashRadius: 25,
               ),
               SizedBox(
-                width: 48,
+                width: 48.w,
               ),
               IconButton(
                 icon: _selectedPosition == 2
                     ? SvgPicture.asset(
                         'images/bottomBar/bell.svg',
-                        width: 25,
-                        height: 25,
+                        width: 25.w,
+                        height: 25.h,
                         color: Colors.black,
                       )
                     : SvgPicture.asset(
                         'images/bottomBar/bell.svg',
-                        width: 25,
-                        height: 25,
+                        width: 25.w,
+                        height: 25.h,
                         color: Colors.grey[600],
                       ),
                 onPressed: () {
@@ -141,14 +177,14 @@ class _ScreenSelectorState extends State<ScreenSelector> {
                 icon: _selectedPosition == 3
                     ? SvgPicture.asset(
                         'images/bottomBar/chat.svg',
-                        width: 23,
-                        height: 23,
+                        width: 25.w,
+                        height: 25.h,
                         color: Colors.black,
                       )
                     : SvgPicture.asset(
                         'images/bottomBar/chat.svg',
-                        width: 23,
-                        height: 23,
+                        width: 25.w,
+                        height: 25.h,
                         color: Colors.grey[600],
                       ),
                 onPressed: () {
@@ -165,5 +201,3 @@ class _ScreenSelectorState extends State<ScreenSelector> {
     );
   }
 }
-
-
