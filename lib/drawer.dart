@@ -7,7 +7,7 @@ double paddingTop = 30.h;
 double paddingLeft = 36.w;
 
 class DrawerWidget extends StatelessWidget {
-
+  static String id = 'drawer';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
