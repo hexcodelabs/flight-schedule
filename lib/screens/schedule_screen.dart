@@ -122,15 +122,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       body: new CustomScrollView(
         slivers: <Widget>[
 
-          new SliverAppBar(
-            backgroundColor: Colors.white,
-            expandedHeight: 0.0,
-            floating: false,
-            pinned: true,
-            flexibleSpace: new FlexibleSpaceBar(
-
-            ),
-          ),
+          // new SliverAppBar(
+          //   backgroundColor: Colors.white,
+          //   expandedHeight: 0.0,
+          //   floating: false,
+          //   pinned: true,
+          //   flexibleSpace: new FlexibleSpaceBar(
+          //
+          //   ),
+          // ),
           SliverPersistentHeader(
 
             // shape: ContinuousRectangleBorder(
