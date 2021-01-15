@@ -13,8 +13,8 @@ class PersistentHeader extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
 
-      width: double.infinity,
-      height: 800.0,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height*0.5,
       child: Card(
         shape:RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -122,15 +122,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       body: new CustomScrollView(
         slivers: <Widget>[
 
-          // new SliverAppBar(
-          //   backgroundColor: Colors.white,
-          //   expandedHeight: 0.0,
-          //   floating: false,
-          //   pinned: true,
-          //   flexibleSpace: new FlexibleSpaceBar(
-          //
-          //   ),
-          // ),
           SliverPersistentHeader(
 
             // shape: ContinuousRectangleBorder(
@@ -237,7 +228,9 @@ Widget containerMaker( String str1, String str2, String str3, String startTime, 
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(str1, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
-                      SizedBox(height: 4.0,width: 2.0,),
+                      SizedBox(
+                        height: 4.0,
+                        width: 2.0,),
                       Text(str2, style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
                       SizedBox(height: 6.0,),
                       Text(str3, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
