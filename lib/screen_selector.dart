@@ -30,6 +30,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height*0.05,
         // automaticallyImplyLeading: false,
         // leading: Builder(
         //   builder: (context) => IconButton(
@@ -79,7 +80,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
       ),
       drawer: DrawerWidget(),
       floatingActionButton: Container(
-        height: 61.h,
+        height: MediaQuery.of(context).size.height*0.1,
         width: 60.w,
         child: FittedBox(
           child: FloatingActionButton(
@@ -92,13 +93,17 @@ class _ScreenSelectorState extends State<ScreenSelector> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomTab(),
-      body: SafeArea(child: _screenContainer[_selectedPosition]
+      body: SafeArea(child: Container(
+          height: MediaQuery.of(context).size.height*0.89,
+          child: _screenContainer[_selectedPosition]
+      )
       ),
     );
   }
 
   _buildBottomTab() {
     return Container(
+      height: MediaQuery.of(context).size.height*0.06,
       child: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Container(
