@@ -67,7 +67,8 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(child: Container(
-      height: MediaQuery.of(context).size.height*0.19,
+      height: 146.h,
+      width: 146.w,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
