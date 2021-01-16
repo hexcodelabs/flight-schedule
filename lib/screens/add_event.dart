@@ -12,7 +12,7 @@ void popBottomSheet(BuildContext context) {
       context: context, builder:(BuildContext bc){
     return Container(
 
-      height: 680.h,
+      height: MediaQuery.of(context).size.height*.85,
       child:  form(context) ,
     );
   });
@@ -22,7 +22,7 @@ Widget form(BuildContext context) {
   return Container(
     margin:EdgeInsets.only(left: 30.w,right: 30.w),
     padding: EdgeInsets.zero,
-    child:Column(
+    child:ListView(
         children:<Widget> [
           Column(
             children: <Widget>[
