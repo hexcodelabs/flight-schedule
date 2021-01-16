@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
+
 class PersistentHeader extends SliverPersistentHeaderDelegate {
   final Widget widget;
 
@@ -12,9 +13,9 @@ class PersistentHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-
-      width: double.infinity,
-      height: 800.0,
+  height:500,
+      // width: MediaQuery.of(context).size.width,
+      // height: MediaQuery.of(context).size.height*0.5,
       child: Card(
         shape:RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -122,15 +123,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       body: new CustomScrollView(
         slivers: <Widget>[
 
-          // new SliverAppBar(
-          //   backgroundColor: Colors.white,
-          //   expandedHeight: 0.0,
-          //   floating: false,
-          //   pinned: true,
-          //   flexibleSpace: new FlexibleSpaceBar(
-          //
-          //   ),
-          // ),
           SliverPersistentHeader(
 
             // shape: ContinuousRectangleBorder(
@@ -167,6 +159,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               [
                 Container(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.only(left:15,top:15,right:15 ,bottom:2 ),
@@ -181,10 +174,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   ),
 
                 ),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
+                containerMaker(context,'Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
                 //as example.....
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
-                containerMaker('Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
+                containerMaker(context,'Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
+                containerMaker(context,'Instructor Name', 'CESSNA 152','Student Name','startTime','endTime'),
 
 
               ],
@@ -196,80 +189,90 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     );
   }
 }
-Widget containerMaker( String str1, String str2, String str3, String startTime, String endTime){
-  return Container(
 
-      padding: EdgeInsets.only(left: 44.0),
+  containerMaker(BuildContext context,String str1, String str2, String str3, String startTime, String endTime) {
+
+    return Container(
+        padding: EdgeInsets.only(left: 44.0),
 //                            color:Colors.lightBlueAccent,
-      child: Column(
-        children: [
-          //padding: EdgeInsets.only(left:30,top:5,right:0 ,bottom:5 ),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(startTime,
-                  style: TextStyle(
-                      fontSize: 12
-                  ),),
-                Expanded(
-                    child: Divider(thickness: 3.0,)
-                ),
-              ]
-          ),
-          Container(
-            width: 271,
-            padding: EdgeInsets.symmetric(horizontal: 5),
-            decoration: BoxDecoration(
-              color: _backGround(),
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-//                                    color: Colors.blue[50],
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-
-                  // width:MediaQuery.of(context).size.width*0.75,
-                  height: 100,
-                  padding: EdgeInsets.only(left: 5.0, top: 10.0),
-//                                            color: Colors.amberAccent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(str1, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold), textAlign: TextAlign.left),
-                      SizedBox(height: 4.0,width: 2.0,),
-                      Text(str2, style: TextStyle(fontSize: 12.0, color: Colors.grey),textAlign: TextAlign.left),
-                      SizedBox(height: 6.0,),
-                      Text(str3, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),textAlign: TextAlign.left),
-                    ],
+        child: Column(
+          children: [
+            //padding: EdgeInsets.only(left:30,top:5,right:0 ,bottom:5 ),
+            Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(startTime,
+                    style: TextStyle(
+                        fontSize: 12
+                    ),),
+                  Expanded(
+                      child: Divider(thickness: 3.0,)
                   ),
-                ),
-                Icon(
-                  Icons.account_circle,size: 60,
-                )
-              ],
+                ]
             ),
-          ),
-          Row(
+            Container(
+              width: MediaQuery.of(context).size.width*0.7,
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                color: _backGround(),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+//                                    color: Colors.blue[50],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
 
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(endTime,
-                  style: TextStyle(
-                      fontSize: 12
-                  ),),
-                Expanded(
-                    child: Divider(thickness: 3.0,)
-                ),
-              ]
-          ),
+                    // width:MediaQuery.of(context).size.width*0.75,
+                    height: 100,
+                    padding: EdgeInsets.only(left: 5.0, top: 10.0),
+//                                            color: Colors.amberAccent,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(str1, style: TextStyle(
+                            fontSize: 17.0, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.left),
+                        SizedBox(
+                          height: 4.0,
+                          width: 2.0,),
+                        Text(str2, style: TextStyle(
+                            fontSize: 12.0, color: Colors.grey),
+                            textAlign: TextAlign.left),
+                        SizedBox(height: 6.0,),
+                        Text(str3, style: TextStyle(
+                            fontSize: 17.0, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.left),
+                      ],
+                    ),
+                  ),
+                  Icon(
+                    Icons.account_circle, size: 60,
+                  )
+                ],
+              ),
+            ),
+            Row(
 
-        ],
-      )
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(endTime,
+                    style: TextStyle(
+                        fontSize: 12
+                    ),),
+                  Expanded(
+                      child: Divider(thickness: 3.0,)
+                  ),
+                ]
+            ),
+
+          ],
+        )
 
 
-  );
-}
+    );
+  }
+
 Color _backGround(){
   Color color;
   if(flag==0){
