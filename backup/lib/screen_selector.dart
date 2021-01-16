@@ -31,6 +31,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: MediaQuery.of(context).size.height*0.05,
+        backgroundColor: Colors.grey,
         // automaticallyImplyLeading: false,
         // leading: Builder(
         //   builder: (context) => IconButton(
@@ -80,7 +81,7 @@ class _ScreenSelectorState extends State<ScreenSelector> {
       ),
       drawer: DrawerWidget(),
       floatingActionButton: Container(
-        height: MediaQuery.of(context).size.height*0.1,
+        height: 61.h,
         width: 60.w,
         child: FittedBox(
           child: FloatingActionButton(

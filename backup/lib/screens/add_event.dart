@@ -12,7 +12,7 @@ void popBottomSheet(BuildContext context) {
       context: context, builder:(BuildContext bc){
     return Container(
 
-      height: MediaQuery.of(context).size.height*.85,
+      height: 680.h,
       child:  form(context) ,
     );
   });
@@ -22,7 +22,7 @@ Widget form(BuildContext context) {
   return Container(
     margin:EdgeInsets.only(left: 30.w,right: 30.w),
     padding: EdgeInsets.zero,
-    child:ListView(
+    child:Column(
         children:<Widget> [
           Column(
             children: <Widget>[
@@ -32,25 +32,24 @@ Widget form(BuildContext context) {
               Container(
                 // color: Colors.blueGrey,
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:63.h,
+                  height:60.h,
                   child: fillBox("Flight Instructor")),
               Container(
 
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:63.h,
+                  height:60.h,
                   child:fillBoxInsert("Student")),
               Container(
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:63.h,
+                  height:60.h,
                   child: fillBox("Aircraft")),
               Container(
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:65.h,
-                  // width: MediaQuery.of(context).size.width*10,
+                  height:60.h,
                   child: fillBoxDate("Date",context)),
               Container(
                 margin: EdgeInsets.only(top:35.h,bottom:0),
-                height:63.h,
+                height:60.h,
 
                 child: Row(
                   children: [
@@ -111,7 +110,7 @@ Widget fillBoxDate(String text,BuildContext context) {
         // color: Colors.blue,
         margin: EdgeInsets.only(top:0),
 
-         // color: Colors.blue,
+        // color: Colors.blue,
         child: Align(
           alignment: Alignment.centerLeft,
           child: Container(
@@ -119,10 +118,10 @@ Widget fillBoxDate(String text,BuildContext context) {
             child: DropdownButton(
 
               icon: Container(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.25),
+                  margin: EdgeInsets.only(left: 225.w),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
@@ -140,7 +139,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                     },
                   )),
               hint:Container(
-                  // color: Colors.red,
+
                   child: Text("Select Date",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans'),)),
 
             ),
@@ -207,7 +206,7 @@ Widget fillBox(String text) {
             isExpanded: true,
             hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
               textAlign:TextAlign.start ,) ,
-            items: <String>['Leorm Ipsum-1', 'Leorm Ipsum-2', 'Leorm Ipsum-3', 'Leorm Ipsum-4'].map((String value) {
+            items: <String>['Leorm Ipsum', 'Leorm', 'Leorm 1 Ipsum', 'Leorm 2Ipsum'].map((String value) {
               return new DropdownMenuItem<String>(
                 value: value,
                 child: Text(value,style:TextStyle(fontSize: 14.0.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
