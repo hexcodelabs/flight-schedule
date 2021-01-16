@@ -12,7 +12,7 @@ void popBottomSheet(BuildContext context) {
       context: context, builder:(BuildContext bc){
     return Container(
 
-      height: 680.h,
+      height: MediaQuery.of(context).size.height*.85,
       child:  form(context) ,
     );
   });
@@ -22,7 +22,7 @@ Widget form(BuildContext context) {
   return Container(
     margin:EdgeInsets.only(left: 30.w,right: 30.w),
     padding: EdgeInsets.zero,
-    child:Column(
+    child:ListView(
         children:<Widget> [
           Column(
             children: <Widget>[
@@ -32,24 +32,24 @@ Widget form(BuildContext context) {
               Container(
                 // color: Colors.blueGrey,
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:60.h,
+                  height:63.h,
                   child: fillBox("Flight Instructor")),
               Container(
 
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:60.h,
+                  height:63.h,
                   child:fillBoxInsert("Student")),
               Container(
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:60.h,
+                  height:63.h,
                   child: fillBox("Aircraft")),
               Container(
                   margin: EdgeInsets.only(top:35.h,bottom:0),
-                  height:60.h,
+                  height:65.h,
                   child: fillBoxDate("Date",context)),
               Container(
                 margin: EdgeInsets.only(top:35.h,bottom:0),
-                height:60.h,
+                height:63.h,
 
                 child: Row(
                   children: [
@@ -112,7 +112,7 @@ Widget fillBoxDate(String text,BuildContext context) {
 
         // color: Colors.blue,
         child: Align(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment.centerRight,
           child: Container(
             height:40.h,
             child: DropdownButton(
@@ -121,7 +121,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                   alignment: Alignment.centerRight,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: 225.w),
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.60),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
