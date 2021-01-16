@@ -113,16 +113,16 @@ Widget fillBoxDate(String text,BuildContext context) {
 
          // color: Colors.blue,
         child: Align(
-          alignment: Alignment.centerRight,
+          alignment: Alignment.centerLeft,
           child: Container(
             height:40.h,
             child: DropdownButton(
 
               icon: Container(
-                  alignment: Alignment.centerRight,
+                  alignment: Alignment.centerLeft,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.63),
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.25),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
