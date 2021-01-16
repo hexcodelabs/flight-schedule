@@ -26,7 +26,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget content() {
     return Container(
-      width: 271.w,
+      width: MediaQuery.of(context).size.width*0.80,
+      //271.w,
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       decoration: BoxDecoration(
         color: Colors.blue[50],
