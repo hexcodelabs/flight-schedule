@@ -46,6 +46,7 @@ Widget form(BuildContext context) {
               Container(
                   margin: EdgeInsets.only(top:35.h,bottom:0),
                   height:65.h,
+                  // width: MediaQuery.of(context).size.width*10,
                   child: fillBoxDate("Date",context)),
               Container(
                 margin: EdgeInsets.only(top:35.h,bottom:0),
@@ -110,18 +111,18 @@ Widget fillBoxDate(String text,BuildContext context) {
         // color: Colors.blue,
         margin: EdgeInsets.only(top:0),
 
-        // color: Colors.blue,
+         // color: Colors.blue,
         child: Align(
-          alignment: Alignment.centerRight,
+          alignment: Alignment.centerLeft,
           child: Container(
             height:40.h,
             child: DropdownButton(
 
               icon: Container(
-                  alignment: Alignment.centerRight,
+                  alignment: Alignment.centerLeft,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.60),
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.25),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
@@ -139,7 +140,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                     },
                   )),
               hint:Container(
-
+                  // color: Colors.red,
                   child: Text("Select Date",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans'),)),
 
             ),
@@ -206,7 +207,7 @@ Widget fillBox(String text) {
             isExpanded: true,
             hint:Text("Leorm Ipsum",style: TextStyle(fontSize: 14.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
               textAlign:TextAlign.start ,) ,
-            items: <String>['Leorm Ipsum', 'Leorm', 'Leorm 1 Ipsum', 'Leorm 2Ipsum'].map((String value) {
+            items: <String>['Leorm Ipsum-1', 'Leorm Ipsum-2', 'Leorm Ipsum-3', 'Leorm Ipsum-4'].map((String value) {
               return new DropdownMenuItem<String>(
                 value: value,
                 child: Text(value,style:TextStyle(fontSize: 14.0.sp,fontWeight:FontWeight.bold,color:Colors.black87,fontFamily:'OpenSans-Bold'),
