@@ -112,7 +112,7 @@ Widget fillBoxDate(String text,BuildContext context) {
 
         // color: Colors.blue,
         child: Align(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment.centerRight,
           child: Container(
             height:40.h,
             child: DropdownButton(
@@ -121,7 +121,7 @@ Widget fillBoxDate(String text,BuildContext context) {
                   alignment: Alignment.centerRight,
                   // color: Colors.blueGrey,
                   padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: 235.w),
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.60),
                   child: IconButton(
                     icon:Icon(Icons.arrow_drop_down,size:25.w,),
                     color: Colors.black87,
