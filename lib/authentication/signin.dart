@@ -26,7 +26,7 @@ class SignIn extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.04,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.03, horizontal: 20.w),
+              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.03, horizontal: MediaQuery.of(context).size.width * 0.053),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -49,15 +49,15 @@ class SignIn extends StatelessWidget {
             ),//0.3
             Expanded(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.65,
+                height: MediaQuery.of(context).size.height * 0.64,
                 // color: Colors.blue,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.w),
-                        topRight: Radius.circular(30.w))),
+                        topLeft: Radius.circular(MediaQuery.of(context).size.width * 0.08),
+                        topRight: Radius.circular(MediaQuery.of(context).size.width * 0.08))),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.036, horizontal: MediaQuery.of(context).size.width * 0.036,),
+                  padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.036, horizontal: MediaQuery.of(context).size.width * 0.05,),
                   child: Column(
                     children: <Widget>[
                       Text(
@@ -76,7 +76,7 @@ class SignIn extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.008, horizontal: MediaQuery.of(context).size.width * 0.008,),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(5.w),
+                          borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * 0.013),
                         ),
                         child: Column(
                           children: <Widget>[
@@ -109,7 +109,7 @@ class SignIn extends StatelessWidget {
                               ),
 
                               child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
+                                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.0024, horizontal: MediaQuery.of(context).size.width * 0.0053,),
                                 child: TextField(
                                   decoration: InputDecoration(
                                     suffixIcon: Icon(Icons.account_circle, color: Colors.blue.shade400,),
@@ -166,7 +166,7 @@ class SignIn extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                   hintText: "****",
-                                  contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                                  contentPadding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.012, horizontal: MediaQuery.of(context).size.width * 0.026,),
                                 ),
                               ),
                             ),

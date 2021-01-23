@@ -11,6 +11,7 @@ class SignUp extends StatelessWidget {
     return Material(
         // backgroundColor: Colors.white10,
         child: Container(
+          height: MediaQuery.of(context).size.height,
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -20,39 +21,41 @@ class SignUp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 30.h,
+                // height: 30.h,
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.03, horizontal: MediaQuery.of(context).size.width * 0.053),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       child: Image(
-                        width: 162.w,
-                        height: 114.h,
+                        width: MediaQuery.of(context).size.width * 0.432,
+                        height: MediaQuery.of(context).size.height * 0.142,
                         image: AssetImage('images/logo.png'),
                       ),
                     ),
                     SizedBox(
-                      height: 5.h,
+                      // height: 5.h,
+                      height: MediaQuery.of(context).size.height * 0.001,
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Expanded(
                 child: Container(
-                  height:  680.h,
+                  height: MediaQuery.of(context).size.height * 0.64,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.w),
-                          topRight: Radius.circular(30.w))),
+                          topLeft: Radius.circular(MediaQuery.of(context).size.width * 0.08),
+                          topRight: Radius.circular(MediaQuery.of(context).size.width * 0.08))),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
+                    padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.036, horizontal: MediaQuery.of(context).size.width * 0.05,),
                     child: Column(
                       children: <Widget>[
                         Text(
@@ -64,13 +67,13 @@ class SignUp extends StatelessWidget {
                               fontFamily: 'Open Sans'),
                         ),
                         SizedBox(
-                          height: 5.h,
+                          height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w),
+                          padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.008, horizontal: MediaQuery.of(context).size.width * 0.008,),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * 0.013),
                           ),
                           child: Column(
                             children: <Widget>[
@@ -94,7 +97,7 @@ class SignUp extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
+                                  padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.0024, horizontal: MediaQuery.of(context).size.width * 0.0053,),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: Icon(Icons.account_circle, color: Colors.blue.shade400,),
@@ -113,7 +116,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: MediaQuery.of(context).size.height * 0.007,
                               ),
                               Column(
                                 children: <Widget>[
@@ -135,7 +138,7 @@ class SignUp extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
+                                  padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.0024, horizontal: MediaQuery.of(context).size.width * 0.0053,),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: Icon(Icons.email, color: Colors.blue.shade400,),
@@ -154,7 +157,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: MediaQuery.of(context).size.height * 0.007,
                               ),
                               Column(
                                 children: <Widget>[
@@ -192,12 +195,12 @@ class SignUp extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                     hintText: "****",
-                                    contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                                    contentPadding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.012, horizontal: MediaQuery.of(context).size.width * 0.026,),
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: MediaQuery.of(context).size.height * 0.007,
                               ),
                               Column(
                                 children: <Widget>[
@@ -235,19 +238,19 @@ class SignUp extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                     hintText: "****",
-                                    contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                                    contentPadding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.012, horizontal: MediaQuery.of(context).size.width * 0.026,),
                                   ),
                                 ),
                               ),
 
                               SizedBox(
-                                height: 5.h,
+                                height: MediaQuery.of(context).size.height * 0.02,
                               ),
                               Container(
-                                height: 50.h,
-                                margin: EdgeInsets.symmetric(horizontal: 50.w),
+                                height: MediaQuery.of(context).size.height * 0.061,
+                                margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.134),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50.w),
+                                  borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height * 0.061),
                                   color: Colors.blue,
                                 ),
                                 child: Center(
@@ -259,7 +262,7 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 3.h,
+                                height: MediaQuery.of(context).size.height * 0.007,
                               ),
                               TextButton(
                                 onPressed: () {
