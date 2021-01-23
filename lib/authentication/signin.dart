@@ -211,7 +211,7 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.061,
+                              height: MediaQuery.of(context).size.height * 0.050,
                             ),
                             TextButton(
                               onPressed: () {
