@@ -5,6 +5,7 @@ import 'package:air_club/screens/chat_screen.dart';
 import 'package:air_club/screens/home_screen.dart';
 import 'package:air_club/screens/notification_screen.dart';
 import 'package:air_club/screens/search_screen.dart';
+import 'package:air_club/student_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screen_selector.dart';
@@ -46,6 +47,7 @@ class AirClub extends StatelessWidget {
           NotificationScreen.id : (context) => NotificationScreen(),
           SearchScreen.id : (context) => SearchScreen(),
           ChatScreen.id : (context) => ChatScreen(),
+          StudentScreen.id : (context) => StudentScreen()
         },
 
 
