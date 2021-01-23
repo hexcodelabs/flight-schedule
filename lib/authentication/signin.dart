@@ -57,7 +57,7 @@ class SignIn extends StatelessWidget {
                         topLeft: Radius.circular(MediaQuery.of(context).size.width * 0.08),
                         topRight: Radius.circular(MediaQuery.of(context).size.width * 0.08))),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.036, horizontal: MediaQuery.of(context).size.width * 0.05,),
+                  padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.05, MediaQuery.of(context).size.height * 0.036, MediaQuery.of(context).size.width * 0.05, 0.0),
                   child: Column(
                     children: <Widget>[
                       Text(
@@ -72,8 +72,8 @@ class SignIn extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.53,
-                        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.008, horizontal: MediaQuery.of(context).size.width * 0.008,),
+                        height: MediaQuery.of(context).size.height * 0.59,
+                        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.008,),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * 0.013),
@@ -109,7 +109,7 @@ class SignIn extends StatelessWidget {
                               ),
 
                               child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.0024, horizontal: MediaQuery.of(context).size.width * 0.0053,),
+                                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.0053, right: MediaQuery.of(context).size.width * 0.0053),
                                 child: TextField(
                                   decoration: InputDecoration(
                                     suffixIcon: Icon(Icons.account_circle, color: Colors.blue.shade400,),
@@ -171,7 +171,7 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.05,
+                              height: MediaQuery.of(context).size.height * 0.03,
                             ),
                             Column(
                               children: <Widget>[
@@ -188,7 +188,7 @@ class SignIn extends StatelessWidget {
                             ),
 
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.036,
+                              height: MediaQuery.of(context).size.height * 0.055,
                             ),
                             GestureDetector(
                               onTap: (){
@@ -211,15 +211,17 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.050,
+                              height: MediaQuery.of(context).size.height * 0.05,
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, SignUp.id);
-                              },
-                              child: Text(
-                                "Don't have account ? Sign Up",
-                                style: TextStyle(color: Colors.black),
+                            Container(
+                              child: TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, SignUp.id);
+                                },
+                                child: Text(
+                                  "Don't have account ? Sign Up",
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
                             ),
                           ],
