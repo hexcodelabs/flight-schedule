@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:air_club/screen_selector.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../student_screen.dart';
+
 class SignIn extends StatelessWidget {
   static String id = 'signin';
 
@@ -192,7 +194,7 @@ class SignIn extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: (){
-                                Navigator.pushNamed(context, ScreenSelector.id);
+                                Navigator.pushNamed(context, StudentScreen.id);
                               },
                               child: Container(
                                 height: MediaQuery.of(context).size.height * 0.061,
