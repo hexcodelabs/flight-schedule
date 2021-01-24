@@ -47,7 +47,7 @@ class AirClub extends StatelessWidget {
           NotificationScreen.id : (context) => NotificationScreen(),
           SearchScreen.id : (context) => SearchScreen(),
           ChatScreen.id : (context) => ChatScreen(),
-          // StudentScreen.id : (context) => StudentScreen()
+          StudentScreen.id : (context) => StudentScreen()
         },
 
 
