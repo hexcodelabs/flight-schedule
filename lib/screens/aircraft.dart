@@ -51,19 +51,19 @@ class _Aircraft extends State<Aircraft> {
             margin: EdgeInsets.only(right: 10, left: 10, top: 20),
             child: Column(
               children: [
-                listtitleshow("AirCraft-01"),
+                listtitleshow("Aircraft-1","Details"),
                 Divider(),
-                listtitleshow("AirCraft-02"),
+                listtitleshow("Aircraft-2","Details"),
                 Divider(),
-                listtitleshow("AirCraft-03"),
+                listtitleshow("Aircraft-3","Details"),
                 Divider(),
-                listtitleshow("AirCraft-04"),
+                listtitleshow("Aircraft-4","Details"),
                 Divider(),
-                listtitleshow("AirCraft-05"),
+                listtitleshow("Aircraft-5","Details"),
                 Divider(),
-                listtitleshow("AirCraft-06"),
+                listtitleshow("Aircraft-6","Details"),
                 Divider(),
-                listtitleshow("AirCraft-07"),
+                listtitleshow("Aircraft-7","Details"),
                 Divider(),
               ],
             ),
@@ -74,16 +74,16 @@ class _Aircraft extends State<Aircraft> {
   }
 }
 
-Widget listtitleshow(String s) {
+Widget listtitleshow(String s,String details) {
   return ListTile(
     onTap: () {},
     title: Text(s),
-    subtitle: Text(s),
+    subtitle: Text(details),
     // tileColor: Colors.grey,
-    leading: Icon(
-      Icons.account_circle_rounded,
-      color: Colors.black87,
-    ),
+    // leading: Icon(
+    //   Icons.account_circle_rounded,
+    //   color: Colors.black87,
+    // ),
     trailing: Icon(Icons.edit),
   );
 }

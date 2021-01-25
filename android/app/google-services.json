@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "711534749185",
+    "project_id": "flightapp-fiverr",
+    "storage_bucket": "flightapp-fiverr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711534749185:android:e95a4abd8ca99659bd8200",
+        "android_client_info": {
+          "package_name": "com.yourcomapany.air_club"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711534749185-b8d41dk8iqa6n5kcg1loi6eo6tdpt6mg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOnj90q4xMw6uEOqGfOSajK47B8WTpObg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711534749185-b8d41dk8iqa6n5kcg1loi6eo6tdpt6mg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
