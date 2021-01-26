@@ -194,7 +194,7 @@ class SignIn extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: (){
-                                Navigator.pushNamed(context, StudentScreen.id);
+                                Navigator.pushNamed(context, ScreenSelector.id);
                               },
                               child: Container(
                                 height: MediaQuery.of(context).size.height * 0.061,
