@@ -31,6 +31,28 @@ exports.newNodeDetected = functions.database.ref("Flights/{flightID}")
       
 });
 
+exports.updateNodeDetected = functions.database.ref("Flights/{flightID}")
+    .onUpdate(async (snapshot, context)=>{
+      const flight = snapshot.val();
+      const studentName = flight["studentname"];
+      const token = flight["studentDeviceToken"];
+      const instructorName = flight["instructorname"];
+      var payload = {
+        notification:{title: "Flight Updated", body: studentName+", You flight have been update by "+instructorName},
+          data:{ click_action:"FLUTTER_NOTIFICATION_CLICK", message : "Update flight"}
+      }
+      try{
+        const response = await admin.messaging().sendToDevice(token,payload);
+        console.log("Notification sent successfully");
+        database.ref('metadata/changed/').set("Notification updated Success");
+      }
+      catch(er){
+        console.log("Error");
+        database.ref('metadata/changed/').set("Creation Error");
+      }
+      
+});
+
 exports.newNodeDeleted = functions.database.ref("Flights/{flightID}")
     .onDelete(async (snapshot, context)=>{
       const flight = snapshot.val();

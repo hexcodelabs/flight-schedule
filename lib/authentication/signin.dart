@@ -1,5 +1,7 @@
 import 'package:air_club/authentication/signup.dart';
 import 'package:air_club/helper/instructors.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,16 @@ class _SignInState extends State<SignIn> {
   var signedUpSuccessful = false;
 
   final _auth = FirebaseAuth.instance;
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+  var token;
+
+  _getToken() {
+    _firebaseMessaging.getToken().then((value) {
+      print(value);
+      token = value;
+    });
+  }
 
   void _showDialog() {
     showDialog(
@@ -46,6 +58,8 @@ class _SignInState extends State<SignIn> {
   }
 
   onClickSignIn() async {
+    await _getToken();
+
     final Email = email.text;
     final Password = password.text;
     var isInstructor = false;
@@ -59,6 +73,7 @@ class _SignInState extends State<SignIn> {
       try {
         final newUser = await _auth.signInWithEmailAndPassword(
             email: Email, password: Password);
+
         if (newUser != null) {
           for (int i = 0; i < instructorList.length; i++) {
             if (Email == instructorList[i].email &&
@@ -73,6 +88,36 @@ class _SignInState extends State<SignIn> {
             }
           }
           if (!isInstructor) {
+            final FirebaseUser user = await _auth.currentUser();
+            var _firebaseRef = FirebaseDatabase().reference();
+            _firebaseRef
+                .child("Students")
+                .child(user.uid)
+                .update({'token': token});
+            var flightdata, studentname;
+            _firebaseRef.once().then((DataSnapshot snapshot) {
+              studentname = snapshot.value;
+              studentname = studentname['Students'];
+              studentname = studentname[user.uid];
+              studentname = studentname['username'];
+
+            });
+
+            _firebaseRef.once().then((DataSnapshot snapshot) {
+              flightdata = snapshot.value;
+              flightdata = flightdata['Flights'];
+              for (int i = 0; i < flightdata.length; i++) {
+                if (flightdata[i] == null) {
+                  continue;
+                }
+                if (flightdata[i]['studentname'] == studentname) {
+                  _firebaseRef
+                      .child("Flights")
+                      .child(i.toString())
+                      .update({'studentDeviceToken': token});
+                }
+              }
+            });
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ScreenSelectorStudent()),
@@ -250,7 +295,7 @@ class _SignInState extends State<SignIn> {
                                       fontFamily: 'OpenSans-Bold',
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    hintText: "****",
+                                    hintText: "******",
                                     errorText: passwordIsEmpty
                                         ? "Password can't be empty"
                                         : null,

@@ -64,22 +64,16 @@ class MyApp extends StatefulWidget {
 }
 class _MyAppState extends State<MyApp> {
   @override
-  // Widget build(BuildContext context) {
-  //   return new SplashScreen(
-  //       seconds: 5,
-  //       navigateAfterSeconds: new AfterSplash(),
-  //       image: Image.asset('images/logo.png'),
-  //       backgroundColor: Colors.blue[900],
-  //       styleTextUnderTheLoader: new TextStyle(),
-  //       photoSize: 150.0,
-  //       onClick: () => print("Flutter Egypt"),
-  //       loaderColor: Colors.blue[900]);
-  // }
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: SignIn(),
-
-    );
+    return new SplashScreen(
+        seconds: 5,
+        navigateAfterSeconds: new AfterSplash(),
+        image: Image.asset('images/logo.png'),
+        backgroundColor: Colors.blue[900],
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 150.0,
+        onClick: () => print("Flutter Egypt"),
+        loaderColor: Colors.blue[900]);
   }
 }
 

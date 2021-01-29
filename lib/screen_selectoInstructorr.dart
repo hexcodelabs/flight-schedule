@@ -1,3 +1,4 @@
+import 'package:air_club/screens/flights.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,9 +30,12 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
   var data, dataFlight, flightData, lastFlightNumber = 0, studentEmail;
   final List<String> students = [];
   var instructorName, studentName, aircraftName, instructorEmail;
-  TimeOfDay time = TimeOfDay(hour: 00, minute: 00);
-  var date = "2020/01/01";
+  var startTime, endTime;
   var studentDeviceToken;
+
+  String date = 'Select Date';
+
+  DateTime selectedDate = DateTime.now();
 
   List<Widget> _screenContainer = [
     HomeScreen(),
@@ -42,15 +46,34 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
+  }
+
+  void callback(String dateIn) {
+    setState(() {
+      date = dateIn;
+    });
+    print('kDate ' + date);
+  }
+
+  void callbackStartTime(String time) {
+    setState(() {
+      startTime = time;
+    });
+    print('Start time callback ' + startTime);
+  }
+
+  void callbackEndTime(String time) {
+    setState(() {
+      endTime = time;
+    });
+    print('End time callback ' + endTime);
   }
 
   @override
@@ -69,11 +92,9 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
         students.add(usernameEvery);
       }
     });
-    findFlightNumber();
   }
 
   Future<void> findFlightNumber() async {
-    final FirebaseUser user = await _auth.currentUser();
     _firebaseRef.once().then((DataSnapshot snapshot) {
       dataFlight = snapshot.value;
       flightData = dataFlight['Flights'];
@@ -84,6 +105,7 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
   }
 
   Future<void> writeData() async {
+    await findFlightNumber();
     for (var i in data.keys) {
       if (studentName == data[i]['username']) {
         studentDeviceToken = data[i]['token'];
@@ -99,7 +121,8 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
       'instructortoken': instructorEmail,
       'instructorname': instructorName,
       'requestToCancel': false,
-      'startTime': time.hour.toString() + ":" + time.minute.toString(),
+      'startTime': startTime,
+      'endTime': endTime,
       'studentDeviceToken': studentDeviceToken,
       'studentname': studentName
     });
@@ -133,111 +156,6 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
           child: Container(
               height: MediaQuery.of(context).size.height * 0.89,
               child: _screenContainer[_selectedPosition])),
-    );
-  }
-
-  _buildBottomTab() {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.06,
-      child: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          height: 59.h,
-          padding: EdgeInsets.fromLTRB(27.w, 0, 27.w, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: _selectedPosition == 0
-                    ? SvgPicture.asset(
-                        'images/bottomBar/home.svg',
-                        width: 23.w,
-                        height: 23.h,
-                        color: Colors.black,
-                      )
-                    : SvgPicture.asset(
-                        'images/bottomBar/home.svg',
-                        width: 23.w,
-                        height: 23.h,
-                        color: Colors.grey[600],
-                      ),
-                onPressed: () {
-                  setState(() {
-                    _selectedPosition = 0;
-                  });
-                },
-                splashRadius: 25,
-              ),
-              IconButton(
-                icon: _selectedPosition == 1
-                    ? SvgPicture.asset(
-                        'images/bottomBar/calendar.svg',
-                        width: 23.w,
-                        height: 23.h,
-                        color: Colors.black,
-                      )
-                    : SvgPicture.asset(
-                        'images/bottomBar/calendar.svg',
-                        width: 23.w,
-                        height: 23.h,
-                        color: Colors.grey[600],
-                      ),
-                onPressed: () {
-                  setState(() {
-                    _selectedPosition = 1;
-                  });
-                },
-                splashRadius: 25,
-              ),
-              SizedBox(
-                width: 48.w,
-              ),
-              IconButton(
-                icon: _selectedPosition == 2
-                    ? SvgPicture.asset(
-                        'images/bottomBar/bell.svg',
-                        width: 25.w,
-                        height: 25.h,
-                        color: Colors.black,
-                      )
-                    : SvgPicture.asset(
-                        'images/bottomBar/bell.svg',
-                        width: 25.w,
-                        height: 25.h,
-                        color: Colors.grey[600],
-                      ),
-                onPressed: () {
-                  setState(() {
-                    _selectedPosition = 2;
-                  });
-                },
-                splashRadius: 25,
-              ),
-              IconButton(
-                icon: _selectedPosition == 3
-                    ? SvgPicture.asset(
-                        'images/bottomBar/chat.svg',
-                        width: 25.w,
-                        height: 25.h,
-                        color: Colors.black,
-                      )
-                    : SvgPicture.asset(
-                        'images/bottomBar/chat.svg',
-                        width: 25.w,
-                        height: 25.h,
-                        color: Colors.grey[600],
-                      ),
-                onPressed: () {
-                  setState(() {
-                    _selectedPosition = 3;
-                  });
-                },
-                splashRadius: 25,
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 
@@ -298,12 +216,12 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
                 margin: EdgeInsets.only(top: 35.h, bottom: 0),
                 height: 65.h,
                 // width: MediaQuery.of(context).size.width*10,
-                child: fillBoxDate("Date", context)),
-            Container(
-                margin: EdgeInsets.only(top: 35.h, bottom: 0),
-                height: 65.h,
-                // width: MediaQuery.of(context).size.width*10,
-                child: fillBoxTime("Time", context)),
+                child: Fdate(callback)),
+            // Container(
+            //     margin: EdgeInsets.only(top: 35.h, bottom: 0),
+            //     height: 65.h,
+            //     // width: MediaQuery.of(context).size.width*10,
+            //     child: Ftime(callbackStartTime)),
             // Container(
             //   margin: EdgeInsets.only(top: 35.h, bottom: 0),
             //   height: 63.h,
@@ -313,6 +231,21 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
             //     ],
             //   ),
             // ),
+            Container(
+              margin: EdgeInsets.only(top: 35.h, bottom: 0),
+              // height:63.h,
+              height: MediaQuery.of(context).size.height * 0.078,
+
+              child: Row(
+                children: [
+                  Flexible(flex: 1, child: Ftime(callbackStartTime, true)),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  Flexible(flex: 1, child: Ftime(callbackEndTime, false)),
+                ],
+              ),
+            ),
             Container(
               child: button("Add"),
             )
@@ -333,9 +266,13 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
           print(studentName);
           print(aircraftName);
           print(date);
-          print(time);
+          print(startTime);
           await writeData();
           Navigator.of(context).pop();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FlightsScreen()),
+          );
         },
         child: Text(
           text,
@@ -351,193 +288,6 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
       ),
     );
   }
-
-  Widget fillBoxDate(String text, BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.all(0),
-            // color: Colors.black87,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'OpenSans',
-                ),
-              ),
-            )),
-        Container(
-          // color: Colors.blue,
-          margin: EdgeInsets.only(top: 0),
-
-          // color: Colors.blue,
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              height: 40.h,
-              child: DropdownButton(
-                icon: Container(
-                    alignment: Alignment.centerLeft,
-                    // color: Colors.blueGrey,
-                    padding: EdgeInsets.zero,
-                    margin: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.25),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_drop_down,
-                        size: 25.w,
-                      ),
-                      color: Colors.black87,
-                      padding: EdgeInsets.all(0),
-                      constraints: BoxConstraints(),
-                      onPressed: () async {
-                        final DateTime picked = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2001),
-                          lastDate: DateTime(2200),
-                        );
-                        if (picked != null) {
-                          setState(() {
-                            final DateFormat formatter =
-                                DateFormat('yyyy-MM-dd');
-                            date = formatter.format(picked).toString();
-                          });
-                        }
-                      },
-                    )),
-                hint: Container(
-                    // color: Colors.red,
-                    child: Text(
-                  date.substring(0, 10),
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: 'OpenSans'),
-                )),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget fillBoxTime(String text, BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.all(0),
-            // color: Colors.black87,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'OpenSans',
-                ),
-              ),
-            )),
-        Container(
-          // color: Colors.blue,
-          margin: EdgeInsets.only(top: 0),
-
-          // color: Colors.blue,
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              height: 40.h,
-              child: DropdownButton(
-                icon: Container(
-                    alignment: Alignment.centerLeft,
-                    // color: Colors.blueGrey,
-                    padding: EdgeInsets.zero,
-                    margin: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.25),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_drop_down,
-                        size: 25.w,
-                      ),
-                      color: Colors.black87,
-                      padding: EdgeInsets.all(0),
-                      constraints: BoxConstraints(),
-                      onPressed: () async {
-                        var pickedTime = (await showTimePicker(
-                          context: context,
-                          initialTime: TimeOfDay(hour: 00, minute: 00),
-                        ));
-                        if (pickedTime != null) {
-                          setState(() {
-                            time = pickedTime;
-                          });
-                        }
-                      },
-                    )),
-                hint: Container(
-                    // color: Colors.red,
-                    child: Text(
-                  time.hour.toString() + ":" + time.minute.toString(),
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: 'OpenSans'),
-                )),
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  // Widget fillBoxInsert(String text) {
-  //   return Column(
-  //     children: [
-  //       Container(
-  //           padding: EdgeInsets.zero,
-  //           margin: EdgeInsets.all(0),
-  //           // color: Colors.black87,
-  //           child: Align(
-  //             alignment: Alignment.centerLeft,
-  //             child: Text(
-  //               text,
-  //               style: TextStyle(
-  //                 fontSize: 14.sp,
-  //                 fontWeight: FontWeight.w400,
-  //                 fontFamily: 'OpenSans',
-  //               ),
-  //             ),
-  //           )),
-  //       Container(
-  //         margin: EdgeInsets.only(top: 0),
-  //         // color: Colors.blue,
-  //         child: Container(
-  //           height: 40.h,
-  //           child: TextField(
-  //             keyboardType: TextInputType.number,
-  //             controller: startTimeController,
-  //             decoration: InputDecoration(
-  //                 hintStyle: TextStyle(
-  //                     fontSize: 13.5.sp,
-  //                     fontWeight: FontWeight.bold,
-  //                     color: Colors.black87),
-  //                 hintText: "Leorm Ipsum"),
-  //           ),
-  //         ),
-  //       )
-  //     ],
-  //   );
-  // }
 
   Widget fillBoxStudent(String text, list) {
     return Column(
@@ -760,6 +510,185 @@ class _ScreenSelectorState extends State<ScreenSelectorInstructor> {
             onPressed: () => Navigator.pop(context, true),
           ),
         ),
+      ],
+    );
+  }
+}
+
+class Ftime extends StatefulWidget {
+  Function(String) startTimeCallBack;
+  bool isStart;
+  Ftime(this.startTimeCallBack, this.isStart);
+
+  @override
+  _FtimeState createState() => _FtimeState();
+}
+
+class _FtimeState extends State<Ftime> {
+  String label = 'Select Time';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+            padding: EdgeInsets.zero,
+            margin: EdgeInsets.all(0),
+            // color: Colors.black87,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                widget.isStart ? "Start Time" : "End Time",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'OpenSans',
+                ),
+              ),
+            )),
+        Container(
+          margin: EdgeInsets.only(top: 0),
+          // color: Colors.blue,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              height: 40.h,
+              child: TextField(
+                readOnly: true,
+                // child: Text(label,
+                // style: TextStyle(
+                //   color: Colors.black
+                // ),),
+                showCursor: false,
+                onTap: () async {
+                  TimeOfDay picked = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                    builder: (BuildContext context, Widget child) {
+                      return MediaQuery(
+                        data: MediaQuery.of(context)
+                            .copyWith(alwaysUse24HourFormat: true),
+                        child: child,
+                      );
+                    },
+                  );
+                  setState(() {
+                    label = picked.format(context);
+                    widget.startTimeCallBack(label);
+                  });
+                },
+                decoration: InputDecoration(
+                    hintStyle: TextStyle(
+                        fontSize: 13.5.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87),
+                    hintText: label),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+    ;
+  }
+}
+
+class Fdate extends StatefulWidget {
+  Function(String) callback;
+  Fdate(this.callback);
+  @override
+  _FdateState createState() => _FdateState();
+}
+
+class _FdateState extends State<Fdate> {
+  String k = 'Select Date';
+  DateTime selectedDate = DateTime.now();
+  void setDate(String date) {}
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+            padding: EdgeInsets.zero,
+            margin: EdgeInsets.all(0),
+            // color: Colors.black87,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Select Date",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'OpenSans',
+                ),
+              ),
+            )),
+        Container(
+          // color: Colors.blue,
+          margin: EdgeInsets.only(top: 0),
+
+          // color: Colors.blue,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () async {
+                final DateTime picked = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2001),
+                  lastDate: DateTime(2200),
+                  // initialEntryMode: DatePickerEntryMode.input,
+                );
+                setState(() {
+                  k = picked.toIso8601String().split('T').first;
+                  widget.callback(k);
+                });
+              },
+              child: Container(
+                // height:40.h,
+                height: MediaQuery.of(context).size.height * 0.050,
+                child: DropdownButton(
+                  icon: Container(
+                      alignment: Alignment.centerLeft,
+                      // color: Colors.blueGrey,
+                      padding: EdgeInsets.zero,
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.25),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_drop_down,
+                          size: 25.w,
+                        ),
+                        color: Colors.black87,
+                        padding: EdgeInsets.all(0),
+                        constraints: BoxConstraints(),
+                        onPressed: () {
+                          // print("Hello");
+                          // showDatePicker(
+                          //   context:context ,
+                          //   initialDate: DateTime.now(),
+                          //   firstDate: DateTime(2001),
+                          //   lastDate: DateTime(2200),
+                          // ).then((pickedDate) => print(pickedDate));
+                        },
+                      )),
+                  hint: Container(
+                      // color: Colors.red,
+                      child: Text(
+                    k,
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                        fontFamily: 'OpenSans'),
+                  )),
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

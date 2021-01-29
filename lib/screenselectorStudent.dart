@@ -1,12 +1,5 @@
-import 'package:air_club/screens/add_event.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/schedule_screen.dart';
-import 'screens/notification_screen.dart';
-import 'screens/chat_screen.dart';
 import 'drawer.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -51,11 +44,8 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
   }
 
 /////////////////////////////////////local notifications
-  Future onSelectNotification(String payload) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => ScreenSelectorStudent()),
-    );
+  Future onSelectNotification(String payload) async {
+    
   }
 
   showNotification(Map<String, dynamic> message) async {
@@ -65,9 +55,8 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
         priority: Priority.high, importance: Importance.max);
     var iOS = IOSNotificationDetails();
     var platform = new NotificationDetails(android: android, iOS: iOS);
-    await flutterLocalNotificationsPlugin.show(
-        0, not['title'], not['body'], platform,
-        payload: data[message]);
+    await flutterLocalNotificationsPlugin
+        .show(0, not['title'], not['body'], platform, payload: data[message]);
   }
 
 ////////////////////////////////////////
@@ -140,6 +129,7 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
           temp.startTime = data[i]['startTime'];
           temp.date = data[i]['flightDate'];
           temp.requestToCancel = data[i]['requestToCancel'];
+          temp.endTime = data[i]['endTime'];
           temp.index = i;
           studentFlightList.add(temp);
         }
@@ -216,6 +206,7 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
                         p.startTime,
                         p.date,
                         p.requestToCancel,
+                        p.endTime,
                         p.index);
                   }).toList()),
                 ),
@@ -225,7 +216,7 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
   }
 
   containerMaker(BuildContext context, String str1, String str2, String str3,
-      String startTime, String date, bool requestToCancel, int index) {
+      String startTime, String date, bool requestToCancel,String endTime, int index) {
     return Container(
         padding: EdgeInsets.only(left: 44.0, top: 10.0),
 //                            color:Colors.lightBlueAccent,
@@ -313,12 +304,8 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
                                                   .update({
                                                 'requestToCancel': true,
                                               });
-                                              Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ScreenSelectorStudent()),
-                                              );
+                                              Navigator.pop(context);
+                                              _refresh();
                                             },
                                           ),
                                           FlatButton(
@@ -339,18 +326,18 @@ class _ScreenSelectorState extends State<ScreenSelectorStudent> {
                 ],
               ),
             ),
-            // Row(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: <Widget>[
-            //       Text(
-            //         date,
-            //         style: TextStyle(fontSize: 12),
-            //       ),
-            //       Expanded(
-            //           child: Divider(
-            //         thickness: 3.0,
-            //       )),
-            //     ]),
+            Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    endTime,
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Expanded(
+                      child: Divider(
+                    thickness: 3.0,
+                  )),
+                ]),
           ],
         ));
   }
